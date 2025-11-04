@@ -1,47 +1,57 @@
+import { HashRouter as Router, Routes, Route, NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Home from './pages/Home.jsx'
+import Friends from './pages/Friends.jsx'
+import Profile from './pages/Profile.jsx'
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div class="container-fluid">
-        <div class="row header">
-            <div class="col">
-                <div class="container">
-                    <h1>My Application</h1>
-                    <p class="mb-0">Welcome to your app template</p>
-                </div>
+    <Router>
+      <div className="app">
+        <header className="header bg tertiary">
+          <div className="head">
+            <div className="name">
+              <p className="h2">BookShelfd</p>
             </div>
-        </div>
-    </div>
+            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+              <div className="container-fluid">
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarNav"  
+                  aria-controls="navbarNav"    
+                  aria-expanded="false" aria-label="Toggle navigation">
+                  <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                  <ul className="navbar-nav ms-auto">
+                    <li className="nav-item">
+                      <NavLink className="nav-link" to="/">Home</NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" to="/portfolio">Friends</NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" to="/contact">Profile</NavLink>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </header>
 
-    
-    <div class="container">
-        <div class="row">
-            
-            <div class="col-md-6 mb-3">
-                <div class="left-column">
-                    <h2>Left Column</h2>
-                    <p>This is the left column content area.</p>
-                    <p>Add your forms, inputs, or navigation here.</p>
-                </div>
-            </div>
-
-            
-            <div class="col-md-6 mb-3">
-                <div class="right-column">
-                    <h2>Right Column</h2>
-                    <p>This is the right column content area.</p>
-                    <p>Add your results, charts, or additional content here.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    </>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/portfolio" element={<Friends />} />
+          <Route path="/contact" element={<Profile />} />
+        </Routes>
+      </div>
+    </Router>
   )
 }
 
