@@ -12,9 +12,14 @@ function Home() {
                         <div class="col-md-12">
                             <div className="boxHome">
 
-                                <p>maybe some rows</p>
-                                <p>trending books</p>
-                                <p>popular with friends</p>
+                                <div class="container">
+                                    <div class="row">
+                                        Trending books go here
+                                    </div>
+                                    <div class="row">
+                                        Books popular with friends
+                                    </div>
+                                </div>
                                 
                             </div>
                         </div>
