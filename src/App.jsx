@@ -4,6 +4,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Home from './pages/Home.jsx'
+import Search from './pages/Search.jsx'
 import Friends from './pages/Friends.jsx'
 import Profile from './pages/Profile.jsx'
 
@@ -33,6 +34,9 @@ function App() {
                       <NavLink className="nav-link" to="/">Home</NavLink>
                     </li>
                     <li className="nav-item">
+                      <NavLink className="nav-link" to="/search">Search</NavLink>
+                    </li>
+                    <li className="nav-item">
                       <NavLink className="nav-link" to="/portfolio">Friends</NavLink>
                     </li>
                     <li className="nav-item">
@@ -47,6 +51,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/portfolio" element={<Friends />} />
           <Route path="/contact" element={<Profile />} />
         </Routes>
