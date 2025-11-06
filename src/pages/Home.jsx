@@ -14,10 +14,15 @@ function Home() {
 
                                 <div class="container">
                                     <div class="row">
-                                        Trending books go here
+                                        <div className="book-grid">
+                                            <p>Trending Books</p>
+                                            
+                                        </div>
                                     </div>
                                     <div class="row">
-                                        Books popular with friends
+                                        <div className="book-grid">
+                                            <p>Books Popular With Your Friends</p>
+                                        </div>
                                     </div>
                                 </div>
                                 
