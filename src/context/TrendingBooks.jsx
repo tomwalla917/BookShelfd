@@ -52,7 +52,7 @@ function TrendingBooks() {
                             className="book-cover"
                         />
                         <div className="book-info">
-                            <h3 className="book-title">{book.title}</h3>
+                            <h5 className="book-title">{book.title}</h5>
                             <p className="book-author">{book.author}</p>
                         </div>
                     </div>
@@ -61,3 +61,5 @@ function TrendingBooks() {
         </div>
     );
 }
+
+export default TrendingBooks;
