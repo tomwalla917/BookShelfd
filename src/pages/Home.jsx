@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import TrendingBooks from '../context/TrendingBooks'
+import FriendsBooks from '../context/FriendsBooks'
 
 
 function Home() {
@@ -13,6 +14,9 @@ function Home() {
                                 <div className="container">
                                     <div className="row">
                                         <TrendingBooks />
+                                    </div>
+                                    <div className="row">
+                                        <FriendsBooks />
                                     </div>
                                 </div>
                             </div>
