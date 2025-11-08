@@ -72,28 +72,28 @@
     flex-direction: column;  
 }
 
-.resumeBox{
-  background-color: white;
-  border-radius: 15px;
-  padding: 1rem;
-  font-size: smaller;
-  min-height: 75vh;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-.resumeContact{
-  display:flex;
-  justify-content: space-around;
-}
-.resumeHeader{
-  color:blue;
-  font-weight: bold;
-}
+
 .book-grid{
   display: flex;
   justify-content: space-around;
+  color: #CA3E47;
+
 }
 .book-card{
-  border: 2px solid blue;
+
   margin: 1rem;
   border-radius: 15px;
+  background-color: #313131;
+}
+
+.boxHome{
+  background-color: #313131;
+  color: #CA3E47;
+}
+.head{
+    background-color: #313131;
+    color: #CA3E47;
+}
+.navbar{
+  background-color: #313131;
 }

@@ -33,7 +33,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #f8f9fa;
+  background-color: #414141;
 }
 
 #root {
@@ -87,15 +87,15 @@ button:focus-visible {
 
 
 .nav-link.active {
-  color: #0d6efd !important; /* Bootstrap primary blue */
+  color: #CA3E47 !important; /* Custom red */
   font-weight: bold;
-  border-bottom: 3px solid #0d6efd;
+  border-bottom: 3px solid #CA3E47;
 }
 
 
 .nav-link:hover {
-  color: #0a58ca !important; /* Darker blue on hover */
-  background-color: rgba(13, 110, 253, 0.1);
+  color: #A32036 !important; /* Darker red on hover */
+  background-color: rgba(202, 62, 71, 0.1);
   border-radius: 5px;
   transition: all 0.3s ease;
 }
@@ -107,54 +107,3 @@ button:focus-visible {
 
 
 
-.head{
-display: flex;
-justify-content: space-between;
-
-}
-
-
-
-.projectCard{
-  display: flex;
-align-items: flex-start;
-  padding: 2rem;
-  gap: 2rem;
-
-}
-
-.prjDesc{
-
-  margin-left: 0;
-  justify-content: space-around;
-  flex:1;
-}
-.prjDesc a:hover{
-  text-decoration: underline;
-}
-.boxHome a:hover{
-  text-decoration: underline;
-}
-.thumbnail{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(13, 110, 253, 0.1);
-  border-radius: 15px;
-  height: 140px;
-  width: 140px;
-  border: 2px solid #0d6efd;
-}
-
-.headshot {
-    background-color: rgba(13, 110, 253, 0.1);
-    border-radius: 15px;
-    border: 2px solid #0d6efd;
-    width: 300px;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 0; 
-}
