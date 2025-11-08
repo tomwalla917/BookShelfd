@@ -97,3 +97,8 @@
 .navbar{
   background-color: #313131;
 }
+.searchBar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
