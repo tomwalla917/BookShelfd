@@ -31,6 +31,8 @@ function TrendingBooks() {
                 author: info.authors?.[0] || "Unknown",
                 coverUrl: info.imageLinks?.thumbnail,
                 pageCount: info.pageCount || "N/A",
+                categories: info.categories || "N/A",
+                description: info.description || "N/A"
               }
             : null;
         })
@@ -66,6 +68,7 @@ function TrendingBooks() {
             <div className="book-info">
               <h5>{book.title}</h5>
               <p>{book.author}</p>
+
             </div>
           </div>
         ))}
