@@ -131,7 +131,7 @@ function Search() {
         <>
             <div className="col-12">
                 <div className="searchBar">
-                    <div className="authorForm">
+                    <div className="formFields">
                         <input
                             type="text"
                             name="author"
@@ -139,8 +139,8 @@ function Search() {
                             onChange={handleInputChange}
                             placeholder="Author Name"
                         />
-                    </div>
-                    <div className="titleForm">
+
+
                         <input
                             type="text"
                             name="title"
@@ -148,8 +148,8 @@ function Search() {
                             onChange={handleInputChange}
                             placeholder="Title"
                         />
-                    </div>
-                    <div className="genreForm">
+
+
                         <select
                             name="genre"
                             value={formData.genre}
@@ -161,24 +161,25 @@ function Search() {
                                 <option key={genre} value={genre}>{genre}</option>
                             ))}
                         </select>
+
+
+
+                        <button className="submitButton"
+                            onClick={handleSearch}
+                            disabled={loading}
+
+                        >
+                            {loading ? 'Searching...' : 'Search Books'}
+                        </button>
+
+                        <button
+                            className="clearButton"
+                            onClick={handleClearForm}
+                            disabled={loading}
+                        >
+                            {'Reset Search'}
+                        </button>
                     </div>
-
-
-                    <button className="submitButton"
-                        onClick={handleSearch}
-                        disabled={loading}
-
-                    >
-                        {loading ? 'Searching...' : 'Search Books'}
-                    </button>
-
-                    <button
-                        className="clearButton"
-                        onClick={handleClearForm}
-                        disabled={loading}
-                    >
-                        {'Reset Search'}
-                    </button>
                 </div>
 
                 {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
