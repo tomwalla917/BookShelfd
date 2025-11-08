@@ -118,12 +118,14 @@ function Search() {
     };
 
     const handleClearForm = () => {
+        handleCloseModal();
         setFormData({
             author: '',
             title: '',
             genre: '',
             length: ''
         });
+        
         setBooks([]);
         setError('');
     };
