@@ -33,7 +33,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #414141;
+  background-color: rgb(22, 22, 22);
 }
 
 #root {
@@ -60,7 +60,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #555555;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -103,6 +103,7 @@ button:focus-visible {
 
 .nav-link {
   transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.805);
 }
 
 
