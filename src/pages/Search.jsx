@@ -117,6 +117,17 @@ function Search() {
         setSelectedBook(null);
     };
 
+    const handleClearForm = () => {
+        setFormData({
+            author: '',
+            title: '',
+            genre: '',
+            length: ''
+        });
+        setBooks([]);
+        setError('');
+    };
+
     return (
         <>
             <div className="col-12">
@@ -162,12 +173,20 @@ function Search() {
                         <option value="long">Long (300+ pages)</option>
                     </select>
                 </div>
-                <button
+                <button className="submitButton"
                     onClick={handleSearch}
                     disabled={loading}
-                    style={{ width: '100%', padding: '10px' }}
+
                 >
                     {loading ? 'Searching...' : 'Search Books'}
+                </button>
+
+                <button
+                    className="clearButton"
+                    onClick={handleClearForm}
+                    disabled={loading}
+                >
+                    {'Reset Search'}
                 </button>
 
                 {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
