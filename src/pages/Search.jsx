@@ -7,7 +7,6 @@ function Search() {
         author: '',
         title: '',
         genre: '',
-        length: ''
     });
 
     const [books, setBooks] = useState([]);
@@ -18,15 +17,28 @@ function Search() {
 
     const genres = [
         'Fiction',
-        'Non-Fiction',
-        'Mystery',
-        'Science Fiction',
         'Fantasy',
-        'Romance',
+        'Science Fiction',
+        'Mystery',
         'Thriller',
-        'Biography',
+        'Romance',
+        'Historical Fiction',
+        'Horror',
+        'Biography & Autobiography',
         'History',
-        'Self-Help'
+        'Science',
+        'Business & Economics',
+        'Self-Help',
+        'Religion',
+        'Philosophy',
+        'Psychology',
+        'Cooking',
+        'Travel',
+        'Art',
+        'Computers',
+        'Education',
+        'Medical',
+        'True Crime'
     ];
 
     const handleInputChange = (e) => {
@@ -37,14 +49,7 @@ function Search() {
         }));
     };
 
-    const getPageRange = (length) => {
-        switch (length) {
-            case 'small': return { min: 0, max: 150 };
-            case 'medium': return { min: 150, max: 300 };
-            case 'long': return { min: 300, max: 1000000 };
-            default: return null;
-        }
-    };
+
 
     const handleSearch = async () => {
         setLoading(true);
@@ -73,13 +78,6 @@ function Search() {
 
             let results = data.items || [];
 
-            if (formData.length && results.length > 0) {
-                const range = getPageRange(formData.length);
-                results = results.filter(book => {
-                    const pageCount = book.volumeInfo?.pageCount;
-                    return pageCount && pageCount >= range.min && pageCount < range.max;
-                });
-            }
 
             const formattedBooks = results.map(book => {
                 const info = book.volumeInfo;
@@ -117,6 +115,18 @@ function Search() {
         setSelectedBook(null);
     };
 
+    const handleClearForm = () => {
+        handleCloseModal();
+        setFormData({
+            author: '',
+            title: '',
+            genre: '',
+        });
+
+        setBooks([]);
+        setError('');
+    };
+
     return (
         <>
             <div className="col-12">
@@ -143,6 +153,7 @@ function Search() {
                         name="genre"
                         value={formData.genre}
                         onChange={handleInputChange}
+                        style={{height: '40px', overflowY: 'auto'}}
                     >
                         <option value="">Select a genre</option>
                         {genres.map(genre => (
@@ -150,24 +161,21 @@ function Search() {
                         ))}
                     </select>
                 </div>
-                <div className="lengthForm">
-                    <select
-                        name="length"
-                        value={formData.length}
-                        onChange={handleInputChange}
-                    >
-                        <option value="">Any length</option>
-                        <option value="small">Small (0-150 pages)</option>
-                        <option value="medium">Medium (150-300 pages)</option>
-                        <option value="long">Long (300+ pages)</option>
-                    </select>
-                </div>
-                <button
+
+                <button className="submitButton"
                     onClick={handleSearch}
                     disabled={loading}
-                    style={{ width: '100%', padding: '10px' }}
+
                 >
                     {loading ? 'Searching...' : 'Search Books'}
+                </button>
+
+                <button
+                    className="clearButton"
+                    onClick={handleClearForm}
+                    disabled={loading}
+                >
+                    {'Reset Search'}
                 </button>
 
                 {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
