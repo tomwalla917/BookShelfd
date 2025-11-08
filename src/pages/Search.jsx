@@ -14,6 +14,11 @@ function Search() {
     const [error, setError] = useState('');
     const [selectedBook, setSelectedBook] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalResults, setTotalResults] = useState(0);
+
+    const RESULTS_PER_PAGE = 10;
+
 
     const genres = [
         'Fiction',
@@ -49,12 +54,9 @@ function Search() {
         }));
     };
 
-
-
-    const handleSearch = async () => {
+    const handleSearch = async (page = 1) => {
         setLoading(true);
         setError('');
-        setBooks([]);
 
         try {
             let query = '';
@@ -68,8 +70,10 @@ function Search() {
                 return;
             }
 
+            const startIndex = (page - 1) * RESULTS_PER_PAGE;
+
             const response = await fetch(
-                `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&maxResults=20`
+                `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&maxResults=${RESULTS_PER_PAGE}&startIndex=${startIndex}&key=${import.meta.env.VITE_GOOGLE_BOOKS}`
             );
 
             if (!response.ok) throw new Error('Failed to fetch books');
@@ -77,7 +81,7 @@ function Search() {
             const data = await response.json();
 
             let results = data.items || [];
-
+            setTotalResults(data.totalItems || 0);
 
             const formattedBooks = results.map(book => {
                 const info = book.volumeInfo;
@@ -89,9 +93,10 @@ function Search() {
                     categories: info.categories || "N/A",
                     description: info.description || "N/A"
                 };
-            }).slice(0, 20);
+            });
 
             setBooks(formattedBooks);
+            setCurrentPage(page);
 
             if (formattedBooks.length === 0) {
                 setError('No Books were found matching your criteria');
@@ -125,6 +130,30 @@ function Search() {
 
         setBooks([]);
         setError('');
+        setCurrentPage(1);
+        setTotalResults(0);
+    };
+
+
+    const MAX_PAGES = 40;
+    const totalPages = Math.min(Math.ceil(totalResults / RESULTS_PER_PAGE), MAX_PAGES);
+
+    const handleNextPage = () => {
+        if (currentPage < totalPages) {
+            handleSearch(currentPage + 1);
+        }
+    };
+
+    const handlePrevPage = () => {
+        if (currentPage > 1) {
+            handleSearch(currentPage - 1);
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch(1);
+        }
     };
 
     return (
@@ -137,23 +166,24 @@ function Search() {
                             name="author"
                             value={formData.author}
                             onChange={handleInputChange}
+                            onKeyDown={handleKeyDown}
                             placeholder="Author Name"
                         />
-
 
                         <input
                             type="text"
                             name="title"
                             value={formData.title}
                             onChange={handleInputChange}
+                            onKeyDown={handleKeyDown}
                             placeholder="Title"
                         />
-
 
                         <select
                             name="genre"
                             value={formData.genre}
                             onChange={handleInputChange}
+                            onKeyDown={handleKeyDown}
                             style={{ height: '40px', overflowY: 'auto' }}
                         >
                             <option value="">Select a genre</option>
@@ -162,12 +192,9 @@ function Search() {
                             ))}
                         </select>
 
-
-
                         <button className="submitButton"
-                            onClick={handleSearch}
+                            onClick={() => handleSearch(1)}
                             disabled={loading}
-
                         >
                             {loading ? 'Searching...' : 'Search Books'}
                         </button>
@@ -187,11 +214,11 @@ function Search() {
 
             {books.length > 0 && (
                 <div className="col-12">
-                    <div className="book-grid">
+                    <div className="book-grid-search">
                         {books.map((book, i) => (
                             <div
                                 key={i}
-                                className="book-card"
+                                className="book-card-search"
                                 onClick={() => handleBookClick(book)}
                             >
                                 <img src={book.coverUrl} alt={book.title} className="book-cover" />
@@ -201,6 +228,28 @@ function Search() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+
+
+                    <div className="pagination" style={{ marginTop: '20px', textAlign: 'center' }}>
+
+                        <button
+                            onClick={handlePrevPage}
+                            disabled={currentPage === 1 || loading}
+                            style={{ margin: '0 10px', padding: '8px 16px' }}
+                        >
+                            Previous
+                        </button>
+                        <span style={{ margin: '0 15px' }}>
+                            Page {currentPage} of {totalPages}
+                        </span>
+                        <button
+                            onClick={handleNextPage}
+                            disabled={currentPage === totalPages || loading}
+                            style={{ margin: '0 10px', padding: '8px 16px' }}
+                        >
+                            Next
+                        </button>
                     </div>
                 </div>
             )}
