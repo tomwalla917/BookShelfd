@@ -88,4 +88,12 @@
   color:blue;
   font-weight: bold;
 }
-
+.book-grid{
+  display: flex;
+  justify-content: space-around;
+}
+.book-card{
+  border: 2px solid blue;
+  margin: 1rem;
+  border-radius: 15px;
+}
