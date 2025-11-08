@@ -130,53 +130,57 @@ function Search() {
     return (
         <>
             <div className="col-12">
-                <div className="authorForm">
-                    <input
-                        type="text"
-                        name="author"
-                        value={formData.author}
-                        onChange={handleInputChange}
-                        placeholder="Author Name"
-                    />
-                </div>
-                <div className="titleForm">
-                    <input
-                        type="text"
-                        name="title"
-                        value={formData.title}
-                        onChange={handleInputChange}
-                        placeholder="Title"
-                    />
-                </div>
-                <div className="genreForm">
-                    <select
-                        name="genre"
-                        value={formData.genre}
-                        onChange={handleInputChange}
-                        style={{height: '40px', overflowY: 'auto'}}
-                    >
-                        <option value="">Select a genre</option>
-                        {genres.map(genre => (
-                            <option key={genre} value={genre}>{genre}</option>
-                        ))}
-                    </select>
-                </div>
+                <div className="searchBar">
+                    <div className="formFields">
+                        <input
+                            type="text"
+                            name="author"
+                            value={formData.author}
+                            onChange={handleInputChange}
+                            placeholder="Author Name"
+                        />
 
-                <button className="submitButton"
-                    onClick={handleSearch}
-                    disabled={loading}
 
-                >
-                    {loading ? 'Searching...' : 'Search Books'}
-                </button>
+                        <input
+                            type="text"
+                            name="title"
+                            value={formData.title}
+                            onChange={handleInputChange}
+                            placeholder="Title"
+                        />
 
-                <button
-                    className="clearButton"
-                    onClick={handleClearForm}
-                    disabled={loading}
-                >
-                    {'Reset Search'}
-                </button>
+
+                        <select
+                            name="genre"
+                            value={formData.genre}
+                            onChange={handleInputChange}
+                            style={{ height: '40px', overflowY: 'auto' }}
+                        >
+                            <option value="">Select a genre</option>
+                            {genres.map(genre => (
+                                <option key={genre} value={genre}>{genre}</option>
+                            ))}
+                        </select>
+
+
+
+                        <button className="submitButton"
+                            onClick={handleSearch}
+                            disabled={loading}
+
+                        >
+                            {loading ? 'Searching...' : 'Search Books'}
+                        </button>
+
+                        <button
+                            className="clearButton"
+                            onClick={handleClearForm}
+                            disabled={loading}
+                        >
+                            {'Reset Search'}
+                        </button>
+                    </div>
+                </div>
 
                 {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
             </div>
