@@ -76,9 +76,24 @@
 .book-grid{
   display: flex;
   justify-content: space-around;
+  color: #CA3E47;
+
 }
 .book-card{
-  border: 2px solid blue;
+
   margin: 1rem;
   border-radius: 15px;
+  background-color: #313131;
+}
+
+.boxHome{
+  background-color: #313131;
+  color: #CA3E47;
+}
+.head{
+    background-color: #313131;
+    color: #CA3E47;
+}
+.navbar{
+  background-color: #313131;
 }

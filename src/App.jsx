@@ -20,7 +20,7 @@ function App() {
             <div className="name">
               <p className="h2">BookShelfd</p>
             </div>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <nav className="navbar navbar-expand ">
               <div className="container-fluid">
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                   data-bs-target="#navbarNav"  
