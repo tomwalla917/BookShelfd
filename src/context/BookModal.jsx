@@ -11,6 +11,8 @@ function BookModal({book, isOpen, onClose}) {
                         <h2>{book.title}</h2>
                         <p className="modal-author">by {book.author}</p>
                         <p className="modal-pages">Pages: {book.pageCount}</p>
+                        <p className="modal-genre">Genre: {book.categories}</p>
+                        <p className="modal-plot">Plot: {book.description}</p>
                     </div>
                 </div>
             </div>
