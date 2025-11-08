@@ -86,11 +86,11 @@
   background-color: #313131;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(2px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(176, 175, 175, 0.3);
   border-radius: 2rem;
   box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2), 
               inset 0 4px 20px rgba(255, 255, 255, 0.3);
-  color: white;
+  color: rgba(255, 255, 255, 0.805);
   overflow: hidden;
   width: 20%;
 }
@@ -98,11 +98,11 @@
 
 .boxHome{
   background-color: #313131;
-  color: #CA3E47;
+  color: rgba(255, 255, 255, 0.805);
 }
 .head{
     background-color: #313131;
-    color: #CA3E47;
+    color: rgba(255, 255, 255, 0.805);
 }
 .navbar{
   background-color: #313131;
