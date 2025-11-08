@@ -31,6 +31,8 @@ function FriendsBooks() {
                 author: info.authors?.[0] || "Unknown",
                 coverUrl: info.imageLinks?.thumbnail,
                 pageCount: info.pageCount || "N/A",
+                categories: info.categories || "N/A",
+                description: info.description || "N/A"
               }
             : null;
         })
