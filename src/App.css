@@ -84,7 +84,17 @@
   margin: 1rem;
   border-radius: 15px;
   background-color: #313131;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(2px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2), 
+              inset 0 4px 20px rgba(255, 255, 255, 0.3);
+  color: white;
+  overflow: hidden;
+  width: 20%;
 }
+
 
 .boxHome{
   background-color: #313131;
@@ -102,7 +112,14 @@
   align-items: center;
   justify-content: center;
 }
-.formFields{
-  height: 1rem;
-
+.formFields {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
 }
+
