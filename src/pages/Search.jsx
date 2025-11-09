@@ -214,7 +214,7 @@ function Search() {
 
             {books.length > 0 && (
                 <div className="col-12">
-                   
+                   <div className="box-search">
                     <div className="book-grid-search">
                         {books.map((book, i) => (
                             <div
@@ -230,7 +230,7 @@ function Search() {
                             </div>
                         ))}
                     </div>
-                 
+                 </div>
 
 
                     <div className="pagination" style={{ marginTop: '20px', textAlign: 'center' }}>

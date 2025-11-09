@@ -82,6 +82,7 @@
 }
 
 
+
 .book-grid {
   display: flex;
   justify-content: space-around;
@@ -225,6 +226,7 @@
   z-index: 1000;
   padding: 2rem;
   overflow-y: auto;
+ background-color: rgba(0, 0, 0, 0.7); 
 }
 
 .modal-content {
