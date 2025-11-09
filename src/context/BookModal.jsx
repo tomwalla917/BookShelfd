@@ -4,7 +4,7 @@ function BookModal({ book, isOpen, onClose }) {
     return (
         <div className="modal-overlay" onClick={onClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                <button className="modal-close" onClick={onClose}>&times;</button>
+                
                 <div className="modal-body">
                     <div className="modal-left-column">
                         <img src={book.coverUrl} alt={`${book.title} cover`} className="modal-cover" />
@@ -16,11 +16,16 @@ function BookModal({ book, isOpen, onClose }) {
                     </div>
                     <div className="modal-right-column">
                         <p className="modal-plot">Plot: {book.description}</p>
-                        <button>Add to List</button>
-                        <button>Write Review</button>
+
                     </div>
+                    
 
                 </div>
+                <div className="modal-actions">
+                        <button className="modal-button">Add to List</button>
+                        <button className="modal-button">Write Review</button>
+                        <button className="modal-button" onClick={onClose}>&times;</button>
+                    </div>
             </div>
         </div>
     );

@@ -4,7 +4,7 @@
   min-height: 100vh;
   text-align: center;
   padding: 2rem;
-  
+
 }
 
 .logo {
@@ -13,9 +13,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -24,6 +26,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -35,9 +38,9 @@
   }
 }
 
-.head{
+.head {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding:1rem;
+  padding: 1rem;
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -54,37 +57,39 @@
   color: #888;
 }
 
-.box{
+.box {
   background-color: white;
   border-radius: 15px;
   padding: 1rem;
   min-height: 75vh;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin:0;
+  margin: 0;
 }
+
 .boxHome {
-    background-color: white;
-    border-radius: 15px;
-    padding: 1rem;
-    min-height: 0px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin: 0;
-    
-    
-    display: flex;
-    justify-content: center; 
-    align-items: center;     
-    flex-direction: column;  
+  background-color: white;
+  border-radius: 15px;
+  padding: 1rem;
+  min-height: 0px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 0;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 
-.book-grid{
+.book-grid {
   display: flex;
   justify-content: space-around;
   color: #CA3E47;
 
 }
-.book-card{
+
+.book-card {
 
   margin: 1rem;
   border-radius: 15px;
@@ -93,20 +98,20 @@
   backdrop-filter: blur(2px) saturate(180%);
   border: 1px solid rgba(176, 175, 175, 0.3);
   border-radius: 1rem;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2), 
-              inset 0 4px 20px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2),
+    inset 0 4px 20px rgba(255, 255, 255, 0.3);
   color: rgba(255, 255, 255, 0.805);
   overflow: hidden;
   width: 20%;
 }
 
-.book-card:hover{
-    transform: translateY(-3px) scale(1.02);
-    backdrop-filter: blur(8px) saturate(200%);
-    border: 1px solid rgba(205, 205, 205, 0.3);
+.book-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  backdrop-filter: blur(8px) saturate(200%);
+  border: 1px solid rgba(205, 205, 205, 0.3);
   border-radius: 1rem;
   box-shadow: 0 8px 32px rgba(205, 205, 205, 0.3),
-              inset 0 4px 20px rgba(255, 255, 255, 0.3);
+    inset 0 4px 20px rgba(255, 255, 255, 0.3);
   color: rgba(255, 255, 255, 0.805);
   transition: all 0.3s ease;
 }
@@ -114,40 +119,42 @@
 
 
 
-.boxHome{
-   margin: 1rem;
+.boxHome {
+  margin: 1rem;
   border-radius: 15px;
   background-color: #313131;
   background: rgba(51, 51, 51, 0.15);
   backdrop-filter: blur(2px) saturate(180%);
   border: 1px solid rgba(176, 175, 175, 0.3);
   border-radius: 2rem;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2), 
-              inset 0 4px 20px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2),
+    inset 0 4px 20px rgba(255, 255, 255, 0.3);
   color: rgba(255, 255, 255, 0.805);
 
   width: 100%;
 }
-.head{
-    margin: 1rem;
+
+.head {
+  margin: 1rem;
   border-radius: 15px;
   background-color: #313131;
   background: rgba(51, 51, 51, 0.15);
   backdrop-filter: blur(2px) saturate(180%);
   border: 1px solid rgba(176, 175, 175, 0.3);
   border-radius: 2rem;
-  box-shadow: 0 8px 32px rgba(31, 38, 38, 0.2), 
-              inset 0 4px 20px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(31, 38, 38, 0.2),
+    inset 0 4px 20px rgba(255, 255, 255, 0.3);
   color: rgba(255, 255, 255, 0.805);
 
   width: 100%;
 }
-.h2{
+
+.h2 {
   font-weight: bold;
 }
 
-.searchBar{
-  display:flex;
+.searchBar {
+  display: flex;
   justify-content: space-around;
   margin: 1rem;
   border-radius: 15px;
@@ -156,8 +163,8 @@
   backdrop-filter: blur(2px) saturate(180%);
   border: 1px solid rgba(176, 175, 175, 0.3);
   border-radius: 2rem;
-  box-shadow: 0 8px 32px rgba(31, 38, 38, 0.2), 
-              inset 0 4px 20px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(31, 38, 38, 0.2),
+    inset 0 4px 20px rgba(255, 255, 255, 0.3);
   color: rgba(255, 255, 255, 0.805);
 
   width: 100%;
@@ -171,12 +178,14 @@
   padding: 20px;
 
 }
-.book-grid-search{
+
+.book-grid-search {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.book-card-search{
+
+.book-card-search {
 
   margin: 1rem;
   border-radius: 15px;
@@ -185,19 +194,20 @@
   backdrop-filter: blur(2px) saturate(180%);
   border: 1px solid rgba(176, 175, 175, 0.3);
   border-radius: 2rem;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2), 
-              inset 0 4px 20px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2),
+    inset 0 4px 20px rgba(255, 255, 255, 0.3);
   color: rgba(255, 255, 255, 0.805);
   overflow: hidden;
   width: 20%;
 }
-.book-card-search:hover{
-    transform: translateY(-3px) scale(1.02);
-    backdrop-filter: blur(8px) saturate(200%);
-    border: 1px solid rgba(205, 205, 205, 0.3);
+
+.book-card-search:hover {
+  transform: translateY(-3px) scale(1.02);
+  backdrop-filter: blur(8px) saturate(200%);
+  border: 1px solid rgba(205, 205, 205, 0.3);
   border-radius: 1rem;
   box-shadow: 0 8px 32px rgba(205, 205, 205, 0.3),
-              inset 0 4px 20px rgba(255, 255, 255, 0.3);
+    inset 0 4px 20px rgba(255, 255, 255, 0.3);
   color: rgba(255, 255, 255, 0.805);
   transition: all 0.3s ease;
 }
@@ -208,19 +218,80 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   padding: 2rem;
-  overflow-y: auto; 
+  overflow-y: auto;
 }
-.modal-left-column{
-  display: column;
-  justify-content: flex-start;
-}
-.modal-right-column{
+
+.modal-content {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  max-width: 80%;
+  max-height: 80%;
+  background-color: rgb(22, 22, 22);
+  backdrop-filter: blur(8px) saturate(200%);
+  border: 1px solid rgba(205, 205, 205, 0.3);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(205, 205, 205, 0.3),
+    inset 0 4px 20px rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.805);
+}
+
+.modal-body {
+  display: flex;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.modal-left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  max-width: 30%;
+  max-height: 50%;
+  
+}
+
+.modal-right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+  border-top: 1px solid rgba(205, 205, 205, 0.3);
+  flex-shrink: 0;
+}
+
+.modal-button {
+  padding: 0.6rem 1.2rem !important;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(205, 205, 205, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+  font-weight: 500;
+  width: auto !important;
+  height: auto !important;
+  min-width: unset !important;
+  min-height: unset !important;
+}
+
+.modal-button:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
