@@ -55,7 +55,6 @@ function FriendsBooks() {
     setSelectedBook(null);
   };
 
-  const [user, setUser] = useState(defaultUser);
 
   return (
     <div className="col-12">
@@ -79,8 +78,6 @@ function FriendsBooks() {
         book={selectedBook}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
-        user={user}
-        setUser={setUser}
       />
     </div>
   );

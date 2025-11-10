@@ -1,20 +1,20 @@
 import * as React from 'react';
+import {defaultUser} from "../types/User.js";
 
-function BookModal({book, isOpen, onClose, user, setUser}) {
+function BookModal({book, isOpen, onClose}) {
     if (!isOpen || !book) return null;
 
     const addBookToList = (listType) => {
-        const current = user?.[listType] ??  [];
-        if (user[listType].includes(book.title)) {
+        if (defaultUser[listType].includes(book.title)) {
             alert(`"${book.title}" is already in your ${listType.replace("books", "").toLowerCase()} list.`);
+        } else {
+            defaultUser[listType].push(book.title);
+            alert(`"${book.title}" has been added to your ${listType.replace("books", "").toLowerCase()} list.`);
+            console.log(defaultUser["booksToRead"])
+            console.log(defaultUser["booksReading"])
+            console.log(defaultUser["booksRead"])
         }
 
-        setUser((prevUser) => ({
-            ...prevUser,
-            [listType]: [...prevUser[listType], book.title],
-        }));
-
-        alert(`"${book.title}" has been added to your ${listType.replace("books", "").toLowerCase()} list.`);
     }
 
     return (
@@ -40,5 +40,7 @@ function BookModal({book, isOpen, onClose, user, setUser}) {
         </div>
     );
 }
+
+console.log(defaultUser["booksToRead"])
 
 export default BookModal;
