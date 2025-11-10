@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import UserProfileCard from "../context/UserProfileCard.js";
 import {friend1, friend2, friend3, friend4, friend5} from "../types/User.js";
 import FriendProfileCard from "../context/FriendProfileCard.js";
 
