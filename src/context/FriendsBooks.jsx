@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import BookModal from "./BookModal";
+import {defaultUser} from "../types/User.js";
 
 function FriendsBooks() {
   const [books, setBooks] = useState([]);
@@ -54,6 +55,8 @@ function FriendsBooks() {
     setSelectedBook(null);
   };
 
+  const [user, setUser] = useState(defaultUser);
+
   return (
     <div className="col-12">
       <h2 className="section-title">Friends Books</h2>
@@ -76,6 +79,8 @@ function FriendsBooks() {
         book={selectedBook}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
+        user={user}
+        setUser={setUser}
       />
     </div>
   );
