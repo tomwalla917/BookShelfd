@@ -9,7 +9,7 @@ function BookModal({ book, isOpen, onClose }) {
                     <div className="modal-left-column">
                         <img src={book.coverUrl} alt={`${book.title} cover`} className="modal-cover" />
 
-                        <h2>{book.title}</h2>
+                        <h4>{book.title}</h4>
                         <p className="modal-author">by {book.author}</p>
                         <p className="modal-pages">Pages: {book.pageCount}</p>
                         <p className="modal-genre">Genre: {book.categories}</p>
