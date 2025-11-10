@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import BookModal from "./BookModal";
-import {defaultUser} from "../types/User.js";
 
 function FriendsBooks() {
   const [books, setBooks] = useState([]);
