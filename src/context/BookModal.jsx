@@ -8,13 +8,10 @@ function BookModal({book, isOpen, onClose}) {
         if (defaultUser[listType].includes(book.title)) {
             alert(`"${book.title}" is already in your ${listType.replace("books", "").toLowerCase()} list.`);
         } else {
-            defaultUser[listType].push(book.title);
+            defaultUser[listType].push(book);
             alert(`"${book.title}" has been added to your ${listType.replace("books", "").toLowerCase()} list.`);
-            console.log(defaultUser["booksToRead"])
-            console.log(defaultUser["booksReading"])
-            console.log(defaultUser["booksRead"])
+            console.log(defaultUser["booksToRead"]);
         }
-
     }
 
     return (
@@ -40,7 +37,4 @@ function BookModal({book, isOpen, onClose}) {
         </div>
     );
 }
-
-console.log(defaultUser["booksToRead"])
-
 export default BookModal;
