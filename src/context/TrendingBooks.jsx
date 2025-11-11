@@ -56,7 +56,9 @@ function TrendingBooks() {
 
   return (
     <div className="col-12">
+      <div className="boxHome">
       <h2 className="section-title">Trending Books</h2>
+      </div>
       <div className="book-grid">
         {books.map((book, i) => (
           <div 
