@@ -36,7 +36,7 @@ export default function UserBooks() {
                 <div className="col-md-4">
                     <div className="card h-100 shadow-sm">
                         <div className="card-body">
-                            <h3 className="card-title">Finished Reading</h3>
+                            <h3 className="card-title">Completed</h3>
                             {booksRead.length > 0 ? (
                                 <ul className="list-group list-group-flush">
                                     {booksRead.map((book, index) => (
