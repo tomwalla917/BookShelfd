@@ -1,10 +1,11 @@
 #root {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   min-height: 100vh;
   text-align: center;
   padding: 2rem;
-
+  box-sizing: border-box;
 }
 @media (min-width: 768px) {
   #root {
@@ -337,6 +338,26 @@
     gap: 0.75rem;
     padding: 0.5rem;
   }
+
+  .book-card {
+    font-size: 0.5rem;
+  }
+  .book-card h5{
+    font-size: 0.7rem;
+  }
+  .book-card img{
+    max-height: 6rem;
+  }
+  .boxHome h2{
+    font-size: 1.1rem;
+  }
+  .name p {
+    font-size: 1.3rem;
+  }
+  .nav-item {
+    font-size: 0.7rem;
+  }
+
 }
 
 
@@ -432,4 +453,12 @@
 
 * {
   box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 0.75rem;
+    width: 100%;
+    max-width: 100%;
+  }
 }
