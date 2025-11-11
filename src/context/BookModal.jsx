@@ -32,7 +32,7 @@ function BookModal({ book, isOpen, onClose }) {
                     </div>
                 </div>
                 <div className="modal-actions">
-                    <button onClick={() => addBookToList("booksToRead", {book})}>Plan to Read</button>
+                    <button onClick={() => addBookToList("booksToRead")}>Plan to Read</button>
                     <button onClick={() => addBookToList("booksReading")}>Currently Reading</button>
                     <button onClick={() => addBookToList("booksRead")}>Completed</button>
                     <button className="modal-button">Write Review</button>
