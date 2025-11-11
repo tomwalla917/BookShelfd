@@ -1,15 +1,32 @@
 import * as React from 'react';
 import { defaultUser } from "../types/User.js";
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function BookModal({ book, isOpen, onClose }) {
     if (!isOpen || !book) return null;
 
     const [reviewText, setReviewText] = useState('');
     const [savedReview, setSavedReview] = useState(null);
-    const [isEditing, setIsEditing]  = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
 
+    useEffect(() => {
+        if (book && book.title) {
+            const storedReview = localStorage.getItem(`review-${book.title}`);
+            if (storedReview) {
+                try {
+                    const parsedReview = JSON.parse(storedReview);
+                    setSavedReview(parsedReview);
+                    setReviewText(parsedReview.text);
+                } catch (error) {
+                    console.error('Error loading review:', error);
+                }
+            } else {
+                setSavedReview(null);
+                setReviewText('');
+            }
+            setIsEditing(false);
+        }
+    }, [book?.title, isOpen]);
 
     const handleSaveReview = () => {
         const review = {
@@ -20,12 +37,12 @@ function BookModal({ book, isOpen, onClose }) {
         console.log('Saving review:', review);
         localStorage.setItem(`review-${book.title}`, JSON.stringify(review));
         setSavedReview(review);
-        setIsEditing(false); 
+        setIsEditing(false);
         setReviewText('');
     };
 
     const handleEditReview = () => {
-        setIsEditing(true); 
+        setIsEditing(true);
     };
 
     const addBookToList = (listType) => {
@@ -62,13 +79,13 @@ function BookModal({ book, isOpen, onClose }) {
                         </div>
                         <div className="modal-review-rating">
                             <h4>Your Review</h4>
-                            
-                            
+
+
                             {isEditing ? (
-                                
+
                                 <>
-                                    <textarea 
-                                        value={reviewText} 
+                                    <textarea
+                                        value={reviewText}
                                         onChange={(e) => setReviewText(e.target.value)}
                                         placeholder='Write a review'
                                         rows="6"
@@ -82,7 +99,7 @@ function BookModal({ book, isOpen, onClose }) {
                                     </button>
                                 </>
                             ) : (
-                                
+
                                 <>
                                     <div>
                                         <p>{savedReview?.text}</p>
