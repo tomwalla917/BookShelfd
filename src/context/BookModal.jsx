@@ -33,16 +33,13 @@ function BookModal({ book, isOpen, onClose }) {
                     </div>
                 </div>
                 <div className="modal-actions">
-                    <button onClick={() => addBookToList("booksToRead")}>Plan to Read</button>
-                    <button onClick={() => addBookToList("booksReading")}>Currently Reading</button>
-                    <button onClick={() => addBookToList("booksRead")}>Completed</button>
+                    <button className="modal-button" onClick={() => addBookToList("booksToRead")}>Plan to Read</button>
+                    <button className="modal-button" onClick={() => addBookToList("booksReading")}>Currently Reading</button>
+                    <button className="modal-button" onClick={() => addBookToList("booksRead")}>Completed</button>
                     <button className="modal-button">Write Review</button>
                     <button className="modal-button" onClick={onClose}>&times;</button>
                 </div>
-                <div className="modal-actions">
-                    <button className="modal-button">Add to List</button>
 
-                </div>
             </div>
         </div>
     );
