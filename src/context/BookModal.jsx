@@ -9,8 +9,7 @@ function BookModal({ book, isOpen, onClose }) {
             alert(`"${book.title}" is already in your ${listType.replace("books", "").toLowerCase()} list.`);
         } else {
             defaultUser[listType].push(book);
-            alert(`"${book.title}" has been added to your ${listType.replace("books", "").toLowerCase()} list.`);
-            console.log(defaultUser["booksToRead"]);
+            localStorage.setItem("user", JSON.stringify(defaultUser));
         }
     }
 

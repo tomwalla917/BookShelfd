@@ -1,3 +1,6 @@
+
+
+
 export interface User {
     id: number;
     displayName: string;
@@ -5,12 +8,12 @@ export interface User {
     email: string;
     bio: string;
     pfp: string;
-    booksRead: string[];
-    booksReading: string[];
-    booksToRead: string[];
+    booksRead: any[];
+    booksReading: any[];
+    booksToRead: any[];
 }
 
-export const defaultUser = {
+export const defaultUser: User = {
     id: 1,
     displayName: "John Doe",
     username: "John_Man_32",
