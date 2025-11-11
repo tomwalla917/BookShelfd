@@ -54,6 +54,7 @@ function FriendsBooks() {
     setSelectedBook(null);
   };
 
+
   return (
     <div className="col-12">
       <h2 className="section-title">Friends Books</h2>

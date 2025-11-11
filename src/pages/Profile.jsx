@@ -1,19 +1,22 @@
-import { Link } from 'react-router-dom'
+import * as React from 'react'
+import UserProfileCard from '../context/UserProfileCard'
+import { defaultUser } from '../types/User'
+import UserBooks from '../context/BookLists'
 
 
 function Profile() {
+
+
     return (
 
-        <div className="page">
+        <div className="container mt-4">
 
-            <div className="page-content">
-                <div className="row mt-3">
-                   <div className="box">
-                    <p>user info like name and email</p>
-                    <p>avatar off to the side</p>
-                    <p>some other shit</p>
-                    </div>
-                </div>
+            <UserProfileCard user={defaultUser} />
+
+            <div className="row g-4">
+
+                <UserBooks />
+
             </div>
         </div>
 
