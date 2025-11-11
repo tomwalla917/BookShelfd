@@ -9,8 +9,7 @@ function BookModal({ book, isOpen, onClose }) {
             alert(`"${book.title}" is already in your ${listType.replace("books", "").toLowerCase()} list.`);
         } else {
             defaultUser[listType].push(book);
-            alert(`"${book.title}" has been added to your ${listType.replace("books", "").toLowerCase()} list.`);
-            console.log(defaultUser["booksToRead"]);
+            localStorage.setItem("user", JSON.stringify(defaultUser));
         }
     }
 
@@ -33,7 +32,7 @@ function BookModal({ book, isOpen, onClose }) {
                     </div>
                 </div>
                 <div className="modal-actions">
-                    <button onClick={() => addBookToList("booksToRead")}>Plan to Read</button>
+                    <button onClick={() => addBookToList("booksToRead", {book})}>Plan to Read</button>
                     <button onClick={() => addBookToList("booksReading")}>Currently Reading</button>
                     <button onClick={() => addBookToList("booksRead")}>Completed</button>
                     <button className="modal-button">Write Review</button>

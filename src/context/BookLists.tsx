@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {defaultUser} from "../types/User.js";
+import {useUser} from "./UserContext";
 
 export default function UserBooks() {
-    const { booksReading, booksRead, booksToRead } = defaultUser;
+    const { user } = useUser()
+    const { booksReading, booksRead, booksToRead } = user;
 
     return (
         <div className="container mt-4">
