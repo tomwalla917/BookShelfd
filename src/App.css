@@ -261,6 +261,7 @@
   flex: 1;
   overflow-y: auto;
   min-height: 0;
+  gap: 1rem;
 }
 
 .modal-left-column {
@@ -269,7 +270,7 @@
   justify-content: flex-start;
   padding: 1rem;
   max-width: 30%;
-  max-height: 50%;
+  overflow-y: auto;
   
 }
 
@@ -291,6 +292,7 @@
   padding: 1rem;
   border-top: 1px solid rgba(205, 205, 205, 0.3);
   flex-shrink: 0;
+  flex-wrap: wrap;
 }
 
 .modal-button {
@@ -303,10 +305,8 @@
   transition: all 0.3s;
   font-size: 0.9rem;
   font-weight: 500;
-  width: auto !important;
-  height: auto !important;
-  min-width: unset !important;
-  min-height: unset !important;
+  white-space: nowrap;
+  flex: 0 1 auto;
 }
 
 .modal-button:hover {
@@ -356,6 +356,24 @@
   }
   .nav-item {
     font-size: 0.7rem;
+  }
+ .modal-overlay {
+    padding: 1rem;
+  }
+
+  .modal-content {
+    max-width: 95%;
+    max-height: 85vh;
+  }
+
+  .modal-actions {
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .modal-button {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
   }
 
 }
@@ -417,29 +435,47 @@
   }
 
 
+.modal-overlay {
+    padding: 0.5rem;
+  }
+
   .modal-content {
     width: 95%;
     max-width: 95%;
     max-height: 92vh;
+    border-radius: 0.75rem;
   }
 
   .modal-body {
-    flex-direction: column;
-    gap: 0.5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.5rem;
   }
 
-  .modal-left-column, .modal-right-column {
-    max-width: 100%;
-    width: 100%;
+  .modal-left-column {
+    flex: 0 0 auto;
+    max-width: 40%;
+    width: 40%;
+    padding: 0.5rem;
+  }
+
+  .modal-right-column {
+    flex: 1 1 auto;
+    max-width: 55%;
+    padding: 0.5rem;
   }
 
   .modal-actions {
-    flex-direction: column;
     gap: 0.5rem;
+    padding: 0.5rem;
   }
 
   .modal-button {
-    width: 100%;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    flex: 1 1 auto;
+    min-width: 0;
   }
 }
 
