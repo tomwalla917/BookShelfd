@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {defaultUser} from "../types/User.js";
+import { defaultUser } from "../types/User.js";
 
-function BookModal({book, isOpen, onClose}) {
+function BookModal({ book, isOpen, onClose }) {
     if (!isOpen || !book) return null;
 
     const addBookToList = (listType) => {
@@ -36,12 +36,13 @@ function BookModal({book, isOpen, onClose}) {
                     <button onClick={() => addBookToList("booksToRead")}>Plan to Read</button>
                     <button onClick={() => addBookToList("booksReading")}>Currently Reading</button>
                     <button onClick={() => addBookToList("booksRead")}>Completed</button>
+                    <button className="modal-button">Write Review</button>
+                    <button className="modal-button" onClick={onClose}>&times;</button>
                 </div>
                 <div className="modal-actions">
-                        <button className="modal-button">Add to List</button>
-                        <button className="modal-button">Write Review</button>
-                        <button className="modal-button" onClick={onClose}>&times;</button>
-                    </div>
+                    <button className="modal-button">Add to List</button>
+
+                </div>
             </div>
         </div>
     );
