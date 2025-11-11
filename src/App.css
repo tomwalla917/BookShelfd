@@ -275,6 +275,8 @@
   padding: 1rem;
   flex: 1;
   overflow-y: auto;
+  max-width:50%;
+  text-align: start;
 }
 
 .modal-actions {

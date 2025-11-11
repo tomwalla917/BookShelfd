@@ -29,7 +29,11 @@ function BookModal({ book, isOpen, onClose }) {
                     </div>
                     <div className="modal-right-column">
                         <p className="modal-plot">Plot: {book.description}</p>
-
+                    </div>
+                    <div className="modal-reviews">
+                        <div className="modal-review-friends">
+                            <p>friend reviews</p>
+                        </div>
                     </div>
                 </div>
                 <div className="modal-actions">
