@@ -11,16 +11,16 @@ export default function UserBooks() {
             <div className="row g-4">
                 {/* Currently Reading */}
                 <div className="col-md-4">
-                    <div className="card h-100 shadow-sm">
+                    <div className="profile-card">
                         <div className="card-body">
                             <h3 className="card-title">Currently Reading</h3>
                             {booksReading.length > 0 ? (
-                                <ul className="list-group list-group-flush">
+                                <ul className="profile-card">
                                     {booksReading.map((book, index) => (
                                         <li key={index} className="list-group-item">
                                             <strong>{book.title}</strong>
                                             <br />
-                                            <small className="text-muted">{book.author}</small>
+                                            <small className="list-group-item">{book.author}</small>
                                         </li>
                                     ))}
                                 </ul>
