@@ -7,7 +7,7 @@ interface UserProfileCardProps {
 
 const UserProfileCard: React.FC<UserProfileCardProps> = ({ user }) => {
     return (
-        <div className="card mb-4 shadow-sm">
+        <div className="profile-card">
             <div className="card-body d-flex align-items-start">
                 <img
                     src={user.pfp}
@@ -22,7 +22,7 @@ const UserProfileCard: React.FC<UserProfileCardProps> = ({ user }) => {
                     <p className="card-text">{user.bio}</p>
                 </div>
                 <div className="ms-auto align-self-end">
-                    <button className="btn btn-outline-primary btn-sm">
+                    <button className="modal-button">
                         Edit Profile
                     </button>
                 </div>

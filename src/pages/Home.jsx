@@ -10,7 +10,7 @@ function Home() {
                 <div className="container-fluid">
                     <div className="row mt-3">
                         <div className="col-md-12">
-                            <div className="boxHome">
+                            
                                 <div className="container">
                                     <div className="row">
                                         <TrendingBooks />
@@ -19,7 +19,7 @@ function Home() {
                                         <FriendsBooks />
                                     </div>
                                 </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
