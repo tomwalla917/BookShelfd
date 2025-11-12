@@ -15,12 +15,12 @@ export default function UserBooks() {
                         <div className="card-body">
                             <h3 className="card-title">Currently Reading</h3>
                             {booksReading.length > 0 ? (
-                                <ul className="profile-card">
+                                <ul className="book-grid" onClick={() => handleBookClick(book)}>
                                     {booksReading.map((book, index) => (
-                                        <li key={index} className="list-group-item">
-                                            <strong>{book.title}</strong>
-                                            <br />
-                                            <small className="list-group-item">{book.author}</small>
+                                        <li key={index} className="profile-book-card">
+                                            <img src={book.coverUrl} alt={book.title} className="book-cover" />
+                                            <h5>{book.title}</h5>
+                                            <p className="list-group-item">{book.author}</p>
                                         </li>
                                     ))}
                                 </ul>
@@ -29,6 +29,7 @@ export default function UserBooks() {
                                     List of books currently being read.
                                 </p>
                             )}
+                            
                         </div>
                     </div>
                 </div>
@@ -39,12 +40,12 @@ export default function UserBooks() {
                         <div className="card-body">
                             <h3 className="card-title">Completed</h3>
                             {booksRead.length > 0 ? (
-                                <ul className="profile-card">
+                                <ul className="book-grid">
                                     {booksRead.map((book, index) => (
-                                        <li key={index} className="list-group-item">
-                                            <strong>{book.title}</strong>
-                                            <br />
-                                            <small className="list-group-item">{book.author}</small>
+                                        <li key={index} className="book-card">
+                                            <img src={book.coverUrl} alt={book.title} className="book-cover" />
+                                            <h5>{book.title}</h5>
+                                            <p className="list-group-item">{book.author}</p>
                                         </li>
                                     ))}
                                 </ul>
@@ -63,12 +64,12 @@ export default function UserBooks() {
                         <div className="card-body">
                             <h3 className="card-title">Want to Read</h3>
                             {booksToRead.length > 0 ? (
-                                <ul className="profile-card">
+                                <ul className="book-grid">
                                     {booksToRead.map((book, index) => (
-                                        <li key={index} className="list-group-item">
-                                            <strong>{book.title}</strong>
-                                            <br />
-                                            <small className="list-group-item">{book.author}</small>
+                                        <li key={index} className="book-card">
+                                            <img src={book.coverUrl} alt={book.title} className="book-cover" />
+                                            <h5>{book.title}</h5>
+                                            <p className="list-group-item">{book.author}</p>
                                         </li>
                                     ))}
                                 </ul>
