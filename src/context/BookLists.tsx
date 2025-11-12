@@ -1,9 +1,24 @@
 import * as React from 'react';
 import {useUser} from "./UserContext";
+import {useState} from "react";
+import BookModal from "../context/BookModal";
 
 export default function UserBooks() {
     const { user } = useUser()
-    const { booksReading, booksRead, booksToRead } = user;
+    const { booksReading, completedBooks, booksToRead } = user;
+
+    const [selectedBook, setSelectedBook] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleBookClick = (book) => {
+        setSelectedBook(book);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setSelectedBook(null);
+    };
 
     return (
         <div className="container mt-4">
@@ -18,9 +33,20 @@ export default function UserBooks() {
                                 <ul className="list-group list-group-flush">
                                     {booksReading.map((book, index) => (
                                         <li key={index} className="list-group-item">
-                                            <strong>{book.title}</strong>
-                                            <br />
-                                            <small className="text-muted">{book.author}</small>
+                                            <div className="row align-items-center">
+                                                <div className="col-auto">
+                                                    <img
+                                                        src={book.coverUrl}
+                                                        alt={book.title}
+                                                        className="img-fluid"
+                                                        width="50" />
+                                                </div>
+                                                <div className="col">
+                                                    <strong>{book.title}</strong>
+                                                    <br />
+                                                    <small className="text-muted">{book.author}</small>
+                                                </div>
+                                            </div>
                                         </li>
                                     ))}
                                 </ul>
@@ -38,13 +64,26 @@ export default function UserBooks() {
                     <div className="card h-100 shadow-sm">
                         <div className="card-body">
                             <h3 className="card-title">Completed</h3>
-                            {booksRead.length > 0 ? (
+                            {completedBooks.length > 0 ? (
                                 <ul className="list-group list-group-flush">
-                                    {booksRead.map((book, index) => (
+                                    {completedBooks.map((book, index) => (
                                         <li key={index} className="list-group-item">
-                                            <strong>{book.title}</strong>
-                                            <br />
-                                            <small className="text-muted">{book.author}</small>
+                                            <div
+                                                className="row align-items-center"
+                                                onClick={() => handleBookClick(book)}>
+                                                <div className="col-auto">
+                                                    <img
+                                                        src={book.coverUrl}
+                                                        alt={book.title}
+                                                        className="img-fluid"
+                                                        width="50" />
+                                                </div>
+                                                <div className="col">
+                                                    <strong>{book.title}</strong>
+                                                    <br />
+                                                    <small className="text-muted">{book.author}</small>
+                                                </div>
+                                            </div>
                                         </li>
                                     ))}
                                 </ul>
@@ -66,9 +105,20 @@ export default function UserBooks() {
                                 <ul className="list-group list-group-flush">
                                     {booksToRead.map((book, index) => (
                                         <li key={index} className="list-group-item">
-                                            <strong>{book.title}</strong>
-                                            <br />
-                                            <small className="text-muted">{book.author}</small>
+                                            <div className="row align-items-center">
+                                                <div className="col-auto">
+                                                    <img
+                                                        src={book.coverUrl}
+                                                        alt={book.title}
+                                                        className="img-fluid"
+                                                        width="50" />
+                                                </div>
+                                                <div className="col">
+                                                    <strong>{book.title}</strong>
+                                                    <br />
+                                                    <small className="text-muted">{book.author}</small>
+                                                </div>
+                                            </div>
                                         </li>
                                     ))}
                                 </ul>
@@ -81,6 +131,11 @@ export default function UserBooks() {
                     </div>
                 </div>
             </div>
+            <BookModal
+                book={selectedBook}
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+            />
         </div>
     );
 }
