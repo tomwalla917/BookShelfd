@@ -55,7 +55,7 @@ Bookshelfd is a modern book discovery and social reading platform that helps you
 ### Home Page
 Discover trending books and see what your friends are currently reading. The home page provides quick access to popular titles and community recommendations.
 
-<img src="src/assets/images/homeImage.png" alt="Bookshelfed Homepage" width="600">
+<img src="/main/src/images/homeImage.png" alt="Bookshelfd Homepage" width="600">
 
 ### Search & Discover
 Use the powerful search functionality to find books by:
