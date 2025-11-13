@@ -50,38 +50,6 @@ Bookshelfd is a modern book discovery and social reading platform that helps you
 - **Responsive Design** - Mobile-first approach with breakpoints
 - **CSS Filters & Effects** - Advanced visual effects for premium feel
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn package manager
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/bookshelfd.git
-   cd bookshelfd
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:5173`
-
-### Build for Production
-```bash
-npm run build
-```
-
 ## 📱 How to Use Bookshelfd
 
 ### Home Page
