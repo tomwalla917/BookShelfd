@@ -2,23 +2,23 @@ import * as React from 'react';
 import { User } from "../types/User";
 
 interface UserProfileCardProps {
-    user: User;
+    friend: User;
 }
 
-const FriendProfileCard: React.FC<UserProfileCardProps> = ({ user }) => {
+const FriendProfileCard: React.FC<UserProfileCardProps> = ({ friend }) => {
     return (
-        <div className="card mb-4 shadow-sm">
+        <div className="Friend-card p-3">
             <div className="card-body d-flex align-items-start">
                 <img
-                    src={user.pfp}
-                    alt={`${user.displayName}'s profile picture`}
+                    src={friend.pfp}
+                    alt={`${friend.displayName}'s profile picture`}
                     className="rounded-circle me-3"
                     width="75"
                     height="75"
                 />
                 <div className="flex-grow-1">
-                    <h4 className="card-title mb-1">{user.displayName}</h4>
-                    <p className="text-muted mb-2">@{user.username}</p>
+                    <h4 className="card-title mb-1">{friend.displayName}</h4>
+                    <p className="mb-2">@{friend.username}</p>
                 </div>
             </div>
         </div>
