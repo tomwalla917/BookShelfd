@@ -1,9 +1,11 @@
 import { HashRouter as Router, Routes, Route, NavLink } from 'react-router-dom'
+import { useState } from 'react'
 import './App.css'
 import Home from './pages/Home.jsx'
 import Search from './pages/Search.jsx'
 import Friends from './pages/Friends.jsx'
 import Profile from './pages/Profile.jsx'
+import logo from './images/logo.png'
 
 
 function App() {
@@ -13,7 +15,10 @@ function App() {
         <header className="header bg tertiary">
           <div className="head">
             <div className="name">
-              <p className="h2">BookShelfd</p>
+
+              <p className="h2">
+                <img src={logo} style={{ maxHeight: '3rem' }}></img>
+                BookShelfd</p>
             </div>
             <nav className="navbar navbar-expand ">
               <div className="container-fluid">
