@@ -2,12 +2,13 @@ import * as React from 'react';
 import { defaultUser } from "../types/User.js";
 import { useState, useEffect } from 'react';
 
-function BookModal({ book, isOpen, onClose }) {
+function BookModal({ book, isOpen, onClose, onBookListChange }) {
     if (!isOpen || !book) return null;
 
     const [reviewText, setReviewText] = useState('');
     const [savedReview, setSavedReview] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
+    const [currentList, setCurrentList] = useState(null);
 
     useEffect(() => {
         if (book && book.title) {
@@ -23,6 +24,16 @@ function BookModal({ book, isOpen, onClose }) {
             } else {
                 setSavedReview(null);
                 setReviewText('');
+            }
+
+            if (defaultUser.booksToRead.some(b => b.title === book.title)) {
+                setCurrentList('booksToRead');
+            } else if (defaultUser.booksReading.some(b => b.title === book.title)) {
+                setCurrentList('booksReading');
+            } else if (defaultUser.completedBooks.some(b => b.title === book.title)) {
+                setCurrentList('completedBooks');
+            } else {
+                setCurrentList(null);
             }
             setIsEditing(false);
         }
@@ -46,14 +57,36 @@ function BookModal({ book, isOpen, onClose }) {
     };
 
     const addBookToList = (listType) => {
-        if (defaultUser[listType].includes(book.title)) {
-            alert(`"${book.title}" is already in your ${listType.replace("books", "").toLowerCase()} list.`);
-        } else {
-            defaultUser[listType].push(book);
-            localStorage.setItem("user", JSON.stringify(defaultUser));
-        }
-    }
+        // Remove book from all lists first
+        defaultUser.booksToRead = defaultUser.booksToRead.filter(b => b.title !== book.title);
+        defaultUser.booksReading = defaultUser.booksReading.filter(b => b.title !== book.title);
+        defaultUser.completedBooks = defaultUser.completedBooks.filter(b => b.title !== book.title);
 
+        // Add to the selected list
+        defaultUser[listType].push(book);
+        localStorage.setItem("user", JSON.stringify(defaultUser));
+
+        // Update the current list state
+        setCurrentList(listType);
+
+        if (onBookListChange) {
+            onBookListChange();
+        }
+    };
+
+    const getButtonText = (listType) => {
+        if (currentList === listType) {
+            // This is the current list
+            if (listType === 'booksToRead') return '✓ Want to Read';
+            if (listType === 'booksReading') return '✓ Currently Reading';
+            if (listType === 'completedBooks') return '✓ Completed';
+        } else {
+            // Show "Move to..." for other lists
+            if (listType === 'booksToRead') return currentList ? 'Move to Want to Read' : 'Want to Read';
+            if (listType === 'booksReading') return currentList ? 'Move to Currently Reading' : 'Currently Reading';
+            if (listType === 'completedBooks') return currentList ? 'Move to Completed' : 'Completed';
+        }
+    };
     return (
         <div className="modal-overlay" onClick={onClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -61,8 +94,6 @@ function BookModal({ book, isOpen, onClose }) {
                 <div className="modal-body">
                     <div className="modal-left-column">
                         <img src={book.coverUrl} alt={`${book.title} cover`} className="modal-cover" />
-
-
                     </div>
                     <div className="modal-right-column">
                         <h4>{book.title}</h4>
@@ -72,35 +103,30 @@ function BookModal({ book, isOpen, onClose }) {
                         <p className="modal-plot">Plot: {book.description}</p>
                     </div>
                     <div className="modal-reviews">
-                        <div className="modal-review-user">
-                            <p>user review</p>
-                        </div>
+
                         <div className="modal-review-friends">
-                            <p>Reviews</p>
+                            <h4>Reviews</h4>
                         </div>
                         <div className="modal-review-rating">
-                            <h4>Your Review</h4>
-
+                            <h6>Your Review:</h6>
 
                             {isEditing ? (
-
                                 <>
                                     <textarea
                                         value={reviewText}
                                         onChange={(e) => setReviewText(e.target.value)}
                                         placeholder='Write a review'
                                         rows="6"
-                                        style={{ width: '100%', padding: '10px' }}
+                                        style={{ width: '80%', padding: '10px' }}
                                     />
-                                    <button onClick={handleSaveReview}>
+                                    <button className="modal-button" onClick={handleSaveReview}>
                                         Save Review
                                     </button>
-                                    <button onClick={onClose}>
+                                    <button className="modal-button" style={{ margin: '.5rem' }} onClick={onClose}>
                                         Cancel
                                     </button>
                                 </>
                             ) : (
-
                                 <>
                                     <div>
                                         <p>{savedReview?.text}</p>
@@ -108,7 +134,7 @@ function BookModal({ book, isOpen, onClose }) {
                                             Saved on: {savedReview?.date ? new Date(savedReview.date).toLocaleDateString() : ''}
                                         </small>
                                     </div>
-                                    <button onClick={handleEditReview}>
+                                    <button className="modal-button" onClick={handleEditReview}>
                                         Edit Review
                                     </button>
                                 </>
@@ -117,10 +143,42 @@ function BookModal({ book, isOpen, onClose }) {
                     </div>
                 </div>
                 <div className="modal-actions">
-                    <button className="modal-button" onClick={() => addBookToList("booksToRead")}>Plan to Read</button>
-                    <button className="modal-button" onClick={() => addBookToList("booksReading")}>Currently Reading</button>
-                    <button className="modal-button" onClick={() => addBookToList("completedBooks")}>Completed</button>
-                    <button className="modal-button" onClick={() => writeReview()}>Write Review</button>
+                    <button
+                        className="modal-button"
+                        onClick={() => addBookToList("booksToRead")}
+                        disabled={currentList === 'booksToRead'}
+                        style={{
+                            opacity: currentList === 'booksToRead' ? 0.6 : 1,
+                            cursor: currentList === 'booksToRead' ? 'default' : 'pointer',
+                            backgroundColor: currentList === 'booksToRead' ? 'rgba(76, 175, 80, 0.3)' : 'rgba(255, 255, 255, 0.1)'
+                        }}
+                    >
+                        {getButtonText('booksToRead')}
+                    </button>
+                    <button
+                        className="modal-button"
+                        onClick={() => addBookToList("booksReading")}
+                        disabled={currentList === 'booksReading'}
+                        style={{
+                            opacity: currentList === 'booksReading' ? 0.6 : 1,
+                            cursor: currentList === 'booksReading' ? 'default' : 'pointer',
+                            backgroundColor: currentList === 'booksReading' ? 'rgba(33, 150, 243, 0.3)' : 'rgba(255, 255, 255, 0.1)'
+                        }}
+                    >
+                        {getButtonText('booksReading')}
+                    </button>
+                    <button
+                        className="modal-button"
+                        onClick={() => addBookToList("completedBooks")}
+                        disabled={currentList === 'completedBooks'}
+                        style={{
+                            opacity: currentList === 'completedBooks' ? 0.6 : 1,
+                            cursor: currentList === 'completedBooks' ? 'default' : 'pointer',
+                            backgroundColor: currentList === 'completedBooks' ? 'rgba(156, 39, 176, 0.3)' : 'rgba(255, 255, 255, 0.1)'
+                        }}
+                    >
+                        {getButtonText('completedBooks')}
+                    </button>
                     <button className="modal-button" onClick={onClose}>&times;</button>
                 </div>
 
