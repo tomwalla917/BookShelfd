@@ -7,7 +7,7 @@ interface UserProfileCardProps {
 
 const FriendProfileCard: React.FC<UserProfileCardProps> = ({ friend }) => {
     return (
-        <div className="Friend-card p-3">
+        <div className="friend-card p-3">
             <div className="card-body d-flex align-items-start">
                 <img
                     src={friend.pfp}
