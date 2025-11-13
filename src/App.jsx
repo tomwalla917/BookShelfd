@@ -1,7 +1,4 @@
 import { HashRouter as Router, Routes, Route, NavLink } from 'react-router-dom'
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Home from './pages/Home.jsx'
 import Search from './pages/Search.jsx'
@@ -10,9 +7,7 @@ import Profile from './pages/Profile.jsx'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
+    return (
     <Router>
       <div className="app">
         <header className="header bg tertiary">
@@ -37,10 +32,10 @@ function App() {
                       <NavLink className="nav-link" to="/search">Search</NavLink>
                     </li>
                     <li className="nav-item">
-                      <NavLink className="nav-link" to="/portfolio">Friends</NavLink>
+                      <NavLink className="nav-link" to="/Friends">Friends</NavLink>
                     </li>
                     <li className="nav-item">
-                      <NavLink className="nav-link" to="/contact">Profile</NavLink>
+                      <NavLink className="nav-link" to="/Profile">Profile</NavLink>
                     </li>
                   </ul>
                 </div>
@@ -52,8 +47,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/portfolio" element={<Friends />} />
-          <Route path="/contact" element={<Profile />} />
+          <Route path="/Friends" element={<Friends />} />
+          <Route path="/Profile" element={<Profile />} />
         </Routes>
       </div>
     </Router>
