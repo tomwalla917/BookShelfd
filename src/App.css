@@ -97,8 +97,7 @@
 
 .book-card {
 
- 
-  border-radius: 15px;
+
   background-color: #313131;
   background: rgba(126, 126, 126, 0.15);
   backdrop-filter: blur(2px) saturate(180%);
