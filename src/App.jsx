@@ -1,10 +1,10 @@
 import { HashRouter as Router, Routes, Route, NavLink } from 'react-router-dom'
-import { useState } from 'react'
 import './App.css'
 import Home from './pages/Home.jsx'
 import Search from './pages/Search.jsx'
-import Friends from './pages/Friends.jsx'
+import Friends from './pages/Friends.tsx'
 import Profile from './pages/Profile.jsx'
+import FriendsProfile from './context/FriendsProfile'
 import logo from './images/logo.png'
 
 
@@ -52,8 +52,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/Friends" element={<Friends />} />
+          <Route path="/Friends" element={<Friends />}>
             <Route path=":username" element={<FriendsProfile />} />
+          </Route>
           <Route path="/Profile" element={<Profile />} />
         </Routes>
       </div>
