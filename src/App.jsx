@@ -48,6 +48,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/Friends" element={<Friends />} />
+            <Route path=":username" element={<FriendsProfile />} />
           <Route path="/Profile" element={<Profile />} />
         </Routes>
       </div>
