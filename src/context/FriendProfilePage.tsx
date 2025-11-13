@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { User } from "../types/User";
+import FriendsBooks from "./FriendsBooks";
 
 interface UserProfileCardProps {
     user: User;
@@ -21,6 +22,9 @@ const FriendProfilePage: React.FC<UserProfileCardProps> = ({ user }) => {
                     <p className="text-muted mb-2">@{user.username}</p>
                     <p className="card-text">{user.bio}</p>
                 </div>
+            </div>
+            <div>
+                <FriendsBooks user={user}/>
             </div>
         </div>
     );

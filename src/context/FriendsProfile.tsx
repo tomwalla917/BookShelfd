@@ -17,7 +17,6 @@ function FriendsProfile() {
         friendFromState ??
         defaultUser.friends.find((f) => f.username === username);
 
-
     if (!friend) {
         return <p className="text-muted">Friend not found.</p>;
     }
