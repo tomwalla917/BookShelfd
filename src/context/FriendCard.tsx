@@ -5,7 +5,7 @@ interface UserProfileCardProps {
     friend: User;
 }
 
-const FriendProfileCard: React.FC<UserProfileCardProps> = ({ friend }) => {
+const FriendCard: React.FC<UserProfileCardProps> = ({ friend }) => {
     return (
         <div className="friend-card p-3">
             <div className="card-body d-flex align-items-start">
@@ -25,4 +25,4 @@ const FriendProfileCard: React.FC<UserProfileCardProps> = ({ friend }) => {
     );
 };
 
-export default FriendProfileCard;
+export default FriendCard;

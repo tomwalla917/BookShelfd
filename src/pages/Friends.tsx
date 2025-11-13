@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import {friend1, friend2, friend3, friend4, friend5, User} from "../types/User.js";
-import FriendProfileCard from "../context/FriendProfileCard.js";
+import FriendCard from "../context/FriendCard.js";
 
 
 const friends :User[] = [friend1, friend2, friend3, friend4, friend5];
@@ -19,7 +19,7 @@ function Friends(){
                                     state={{ friend }}
                                     className="text-decoration-none d-block"
                                 >
-                                    <FriendProfileCard friend={friend} />
+                                    <FriendCard friend={friend} />
                                 </Link>
                             </li>
                         ))}
