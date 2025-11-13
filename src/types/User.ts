@@ -13,17 +13,11 @@ export interface User {
     booksToRead: any[];
 }
 
-export const defaultUser: User = {
-    id: 1,
-    displayName: "John Doe",
-    username: "John_Man_32",
-    email: "johnman32@example.com",
-    bio: "I’m a lifelong reader with an endless curiosity for stories of every kind—from timeless classics to modern thrillers. Every book teaches me something new about the world and myself. When I’m not reading, I’m writing reviews, building book lists, and helping others discover stories they’ll love.",
-    pfp: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg",
-    completedBooks: [],
-    booksReading: [],
-    booksToRead: [],
-};
+export interface MainUser extends User {
+    friends: User[];
+
+}
+
 
 export const friend1: User = {
     id: 2,
@@ -83,4 +77,17 @@ export const friend5: User = {
     completedBooks: [],
     booksReading: [],
     booksToRead: [],
+};
+
+export const defaultUser: MainUser = {
+    id: 1,
+    displayName: "John Doe",
+    username: "John_Man_32",
+    email: "johnman32@example.com",
+    bio: "I’m a lifelong reader with an endless curiosity for stories of every kind—from timeless classics to modern thrillers. Every book teaches me something new about the world and myself. When I’m not reading, I’m writing reviews, building book lists, and helping others discover stories they’ll love.",
+    pfp: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg",
+    completedBooks: [],
+    booksReading: [],
+    booksToRead: [],
+    friends: [friend1, friend2, friend3, friend4, friend5],
 };
