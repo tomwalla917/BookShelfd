@@ -12,10 +12,11 @@ function Friends(){
                 <aside className="col-md-4 col-lg-3 border-end py-3">
                     <h2 className="boxFriends mb-3 section-title">Friends</h2>
                     <ul className="list-unstyled mb-0">
-                        {friends.map((friend) => (
+                        {friends.map((friend :User) => (
                             <li key={friend.id} className="mb-3">
                                 <Link
                                     to={friend.username}
+                                    state={{ friend }}
                                     className="text-decoration-none d-block"
                                 >
                                     <FriendProfileCard friend={friend} />
