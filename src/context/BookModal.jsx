@@ -8,6 +8,11 @@ function BookModal({ book, isOpen, onClose }) {
     const [reviewText, setReviewText] = useState('');
     const [savedReview, setSavedReview] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
+    const [bookLists, setBookLists] = useState({
+        booksToRead: false,
+        booksReading: false,
+        completedBooks: false
+    });
 
     useEffect(() => {
         if (book && book.title) {
@@ -24,6 +29,12 @@ function BookModal({ book, isOpen, onClose }) {
                 setSavedReview(null);
                 setReviewText('');
             }
+
+            setBookLists({
+                booksToRead: defaultUser.booksToRead.some(b => b.title === book.title),
+                booksReading: defaultUser.booksReading.some(b => b.title === book.title),
+                completedBooks: defaultUser.completedBooks.some(b => b.title === book.title)
+            });
             setIsEditing(false);
         }
     }, [book?.title, isOpen]);
@@ -46,23 +57,28 @@ function BookModal({ book, isOpen, onClose }) {
     };
 
     const addBookToList = (listType) => {
-        if (defaultUser[listType].includes(book.title)) {
+        const isInList = defaultUser[listType].some(b => b.title === book.title);
+        
+        if (isInList) {
             alert(`"${book.title}" is already in your ${listType.replace("books", "").toLowerCase()} list.`);
         } else {
             defaultUser[listType].push(book);
             localStorage.setItem("user", JSON.stringify(defaultUser));
+
+            setBookLists(prev => ({
+                ...prev,
+                [listType]: true
+            }));
         }
     }
 
     return (
-        <div className="modal-overlay" onClick={onClose}>
+       <div className="modal-overlay" onClick={onClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
 
                 <div className="modal-body">
                     <div className="modal-left-column">
                         <img src={book.coverUrl} alt={`${book.title} cover`} className="modal-cover" />
-
-
                     </div>
                     <div className="modal-right-column">
                         <h4>{book.title}</h4>
@@ -72,35 +88,30 @@ function BookModal({ book, isOpen, onClose }) {
                         <p className="modal-plot">Plot: {book.description}</p>
                     </div>
                     <div className="modal-reviews">
-                        <div className="modal-review-user">
-                            <p>user review</p>
-                        </div>
+
                         <div className="modal-review-friends">
-                            <p>Reviews</p>
+                            <h4>Reviews</h4>
                         </div>
                         <div className="modal-review-rating">
-                            <h4>Your Review</h4>
-
+                            <h6>Your Review:</h6>
 
                             {isEditing ? (
-
                                 <>
                                     <textarea
                                         value={reviewText}
                                         onChange={(e) => setReviewText(e.target.value)}
                                         placeholder='Write a review'
                                         rows="6"
-                                        style={{ width: '100%', padding: '10px' }}
+                                        style={{ width: '80%', padding: '10px' }}
                                     />
-                                    <button onClick={handleSaveReview}>
+                                    <button className="modal-button" onClick={handleSaveReview}>
                                         Save Review
                                     </button>
-                                    <button onClick={onClose}>
+                                    <button className="modal-button" style={{margin: '.5rem'}} onClick={onClose}>
                                         Cancel
                                     </button>
                                 </>
                             ) : (
-
                                 <>
                                     <div>
                                         <p>{savedReview?.text}</p>
@@ -108,7 +119,7 @@ function BookModal({ book, isOpen, onClose }) {
                                             Saved on: {savedReview?.date ? new Date(savedReview.date).toLocaleDateString() : ''}
                                         </small>
                                     </div>
-                                    <button onClick={handleEditReview}>
+                                    <button className="modal-button"onClick={handleEditReview}>
                                         Edit Review
                                     </button>
                                 </>
@@ -117,10 +128,39 @@ function BookModal({ book, isOpen, onClose }) {
                     </div>
                 </div>
                 <div className="modal-actions">
-                    <button className="modal-button" onClick={() => addBookToList("booksToRead")}>Plan to Read</button>
-                    <button className="modal-button" onClick={() => addBookToList("booksReading")}>Currently Reading</button>
-                    <button className="modal-button" onClick={() => addBookToList("completedBooks")}>Completed</button>
-                    <button className="modal-button" onClick={() => writeReview()}>Write Review</button>
+                    <button 
+                        className="modal-button" 
+                        onClick={() => addBookToList("booksToRead")}
+                        disabled={bookLists.booksToRead}
+                        style={{ 
+                            opacity: bookLists.booksToRead ? 0.5 : 1,
+                            cursor: bookLists.booksToRead ? 'not-allowed' : 'pointer'
+                        }}
+                    >
+                        {bookLists.booksToRead ? '✓ Added to Read' : 'Plan to Read'}
+                    </button>
+                    <button 
+                        className="modal-button" 
+                        onClick={() => addBookToList("booksReading")}
+                        disabled={bookLists.booksReading}
+                        style={{ 
+                            opacity: bookLists.booksReading ? 0.5 : 1,
+                            cursor: bookLists.booksReading ? 'not-allowed' : 'pointer'
+                        }}
+                    >
+                        {bookLists.booksReading ? '✓ Currently Reading' : 'Currently Reading'}
+                    </button>
+                    <button 
+                        className="modal-button" 
+                        onClick={() => addBookToList("completedBooks")}
+                        disabled={bookLists.completedBooks}
+                        style={{ 
+                            opacity: bookLists.completedBooks ? 0.5 : 1,
+                            cursor: bookLists.completedBooks ? 'not-allowed' : 'pointer'
+                        }}
+                    >
+                        {bookLists.completedBooks ? '✓ Completed' : 'Completed'}
+                    </button>
                     <button className="modal-button" onClick={onClose}>&times;</button>
                 </div>
 
