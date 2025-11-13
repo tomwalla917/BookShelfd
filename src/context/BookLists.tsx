@@ -26,26 +26,26 @@ export default function UserBooks() {
             <div className="row g-4">
                 {/* Currently Reading */}
                 <div className="col-md-4">
-                    <div className="card h-100 shadow-sm">
+                    <div className="card h-100 profile-card">
                         <div className="card-body">
                             <h3 className="card-title">Currently Reading</h3>
                             {booksReading.length > 0 ? (
-                                <ul className="list-group list-group-flush">
+                                <ul className="list-group book-grid">
                                     {booksReading.map((book, index) => (
-                                        <li key={index} className="list-group-item">
+                                        <li key={index} className="book-card p-2">
                                             <div className="row align-items-center"
                                                  onClick={() => handleBookClick(book)}>
                                                 <div className="col-auto">
                                                     <img
                                                         src={book.coverUrl}
                                                         alt={book.title}
-                                                        className="img-fluid"
+                                                        className="shadow-lg"
                                                         width="50" />
                                                 </div>
                                                 <div className="col">
                                                     <strong>{book.title}</strong>
                                                     <br />
-                                                    <small className="text-muted">{book.author}</small>
+                                                    <small>{book.author}</small>
                                                 </div>
                                             </div>
                                         </li>
@@ -62,26 +62,26 @@ export default function UserBooks() {
 
                 {/* Finished Reading */}
                 <div className="col-md-4">
-                    <div className="card h-100 shadow-sm">
+                    <div className="card h-100 profile-card">
                         <div className="card-body">
                             <h3 className="card-title">Completed</h3>
                             {completedBooks.length > 0 ? (
-                                <ul className="list-group list-group-flush">
+                                <ul className="list-group book-grid">
                                     {completedBooks.map((book, index) => (
-                                        <li key={index} className="list-group-item">
+                                        <li key={index} className="book-card p-2">
                                             <div className="row align-items-center"
                                                  onClick={() => handleBookClick(book)}>
                                                 <div className="col-auto">
                                                     <img
                                                         src={book.coverUrl}
                                                         alt={book.title}
-                                                        className="img-fluid"
+                                                        className="shadow-lg"
                                                         width="50" />
                                                 </div>
                                                 <div className="col">
                                                     <strong>{book.title}</strong>
                                                     <br />
-                                                    <small className="text-muted">{book.author}</small>
+                                                    <small>{book.author}</small>
                                                 </div>
                                             </div>
                                         </li>
@@ -98,26 +98,26 @@ export default function UserBooks() {
 
                 {/* Want to Read */}
                 <div className="col-md-4">
-                    <div className="card h-100 shadow-sm">
+                    <div className="card h-100 profile-card">
                         <div className="card-body">
                             <h3 className="card-title">Want to Read</h3>
                             {booksToRead.length > 0 ? (
-                                <ul className="list-group list-group-flush">
+                                <ul className="list-group book-grid">
                                     {booksToRead.map((book, index) => (
-                                        <li key={index} className="list-group-item">
+                                        <li key={index} className="book-card p-2">
                                             <div className="row align-items-center"
                                                  onClick={() => handleBookClick(book)}>
                                                 <div className="col-auto">
                                                     <img
                                                         src={book.coverUrl}
                                                         alt={book.title}
-                                                        className="img-fluid"
+                                                        className="shadow-lg"
                                                         width="50" />
                                                 </div>
                                                 <div className="col">
                                                     <strong>{book.title}</strong>
                                                     <br />
-                                                    <small className="text-muted">{book.author}</small>
+                                                    <small>{book.author}</small>
                                                 </div>
                                             </div>
                                         </li>
