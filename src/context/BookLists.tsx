@@ -33,7 +33,8 @@ export default function UserBooks() {
                                 <ul className="list-group list-group-flush">
                                     {booksReading.map((book, index) => (
                                         <li key={index} className="list-group-item">
-                                            <div className="row align-items-center">
+                                            <div className="row align-items-center"
+                                                 onClick={() => handleBookClick(book)}>
                                                 <div className="col-auto">
                                                     <img
                                                         src={book.coverUrl}
@@ -68,9 +69,8 @@ export default function UserBooks() {
                                 <ul className="list-group list-group-flush">
                                     {completedBooks.map((book, index) => (
                                         <li key={index} className="list-group-item">
-                                            <div
-                                                className="row align-items-center"
-                                                onClick={() => handleBookClick(book)}>
+                                            <div className="row align-items-center"
+                                                 onClick={() => handleBookClick(book)}>
                                                 <div className="col-auto">
                                                     <img
                                                         src={book.coverUrl}
@@ -105,7 +105,8 @@ export default function UserBooks() {
                                 <ul className="list-group list-group-flush">
                                     {booksToRead.map((book, index) => (
                                         <li key={index} className="list-group-item">
-                                            <div className="row align-items-center">
+                                            <div className="row align-items-center"
+                                                 onClick={() => handleBookClick(book)}>
                                                 <div className="col-auto">
                                                     <img
                                                         src={book.coverUrl}
