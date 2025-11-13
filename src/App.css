@@ -284,6 +284,16 @@
   max-width:50%;
   text-align: start;
 }
+.modal-reviews{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto;
+  max-width:40%;
+  text-align: start;
+}
 
 .modal-actions {
   display: flex;
@@ -462,6 +472,12 @@
 
   .modal-right-column {
     flex: 1 1 auto;
+    max-width: 55%;
+    padding: 0.5rem;
+  }
+  .modal-reviews {
+    display:flex;
+    flex-direction: column;
     max-width: 55%;
     padding: 0.5rem;
   }
