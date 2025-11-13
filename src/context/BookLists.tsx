@@ -1,14 +1,23 @@
 import * as React from 'react';
-import {useUser} from "./UserContext";
-import {useState} from "react";
+import { useUser } from "./UserContext";
+import { useState, useEffect } from "react";
 import BookModal from "../context/BookModal";
+import { defaultUser } from "../types/User.js";
 
 export default function UserBooks() {
     const { user } = useUser()
-    const { booksReading, completedBooks, booksToRead } = user;
+    const [localUser, setLocalUser] = useState(user);
+
+
+    useEffect(() => {
+        setLocalUser(user);
+    }, [user]);
+
+    const { booksReading, completedBooks, booksToRead } = localUser;
 
     const [selectedBook, setSelectedBook] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+
 
     const handleBookClick = (book) => {
         setSelectedBook(book);
@@ -20,8 +29,19 @@ export default function UserBooks() {
         setSelectedBook(null);
     };
 
+    const handleBookListChange = () => {
+        try {
+            const stored = localStorage.getItem("user");
+            const updatedUser = stored ? JSON.parse(stored) : defaultUser;
+            setLocalUser(updatedUser);
+        } catch (error) {
+            console.error("Error loading user from localStorage:", error);
+            setLocalUser(defaultUser);
+        }
+    };
+
     return (
-        <div className="container mt-4">
+        <div className="container mt-4" >
 
             <div className="row g-4">
                 {/* Currently Reading */}
@@ -34,7 +54,7 @@ export default function UserBooks() {
                                     {booksReading.map((book, index) => (
                                         <li key={index} className="list-group-item">
                                             <div className="row align-items-center"
-                                                 onClick={() => handleBookClick(book)}>
+                                                onClick={() => handleBookClick(book)}>
                                                 <div className="col-auto">
                                                     <img
                                                         src={book.coverUrl}
@@ -70,7 +90,7 @@ export default function UserBooks() {
                                     {completedBooks.map((book, index) => (
                                         <li key={index} className="list-group-item">
                                             <div className="row align-items-center"
-                                                 onClick={() => handleBookClick(book)}>
+                                                onClick={() => handleBookClick(book)}>
                                                 <div className="col-auto">
                                                     <img
                                                         src={book.coverUrl}
@@ -106,7 +126,7 @@ export default function UserBooks() {
                                     {booksToRead.map((book, index) => (
                                         <li key={index} className="list-group-item">
                                             <div className="row align-items-center"
-                                                 onClick={() => handleBookClick(book)}>
+                                                onClick={() => handleBookClick(book)}>
                                                 <div className="col-auto">
                                                     <img
                                                         src={book.coverUrl}
@@ -136,6 +156,7 @@ export default function UserBooks() {
                 book={selectedBook}
                 isOpen={isModalOpen}
                 onClose={handleCloseModal}
+                onBookListChange={handleBookListChange}
             />
         </div>
     );
