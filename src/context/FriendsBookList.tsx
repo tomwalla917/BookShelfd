@@ -15,7 +15,7 @@ const FriendsBookList: React.FC<FriendsBooksProps> = ({ user })=> {
             <div className="row g-4">
 
                 {/* Want to Read */}
-                <div className="col-md-4">
+                <div>
                     <div className="card h-100 profile-card">
                         <div className="card-body">
                             <h3 className="card-title">Want to Read</h3>
@@ -50,7 +50,7 @@ const FriendsBookList: React.FC<FriendsBooksProps> = ({ user })=> {
                 </div>
 
                 {/* Currently Reading */}
-                <div className="col-md-4">
+                <div>
                     <div className="card h-100 profile-card">
                         <div className="card-body">
                             <h3 className="card-title">Currently Reading</h3>
@@ -85,7 +85,7 @@ const FriendsBookList: React.FC<FriendsBooksProps> = ({ user })=> {
                 </div>
 
                 {/* Finished Reading */}
-                <div className="col-md-4">
+                <div>
                     <div className="card h-100 profile-card">
                         <div className="card-body">
                             <h3 className="card-title">Completed</h3>

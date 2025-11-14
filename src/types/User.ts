@@ -1,4 +1,4 @@
-
+import { friend1Books, friend2Books, friend3Books, friend4Books, friend5Books} from "../context/ExampleFriendBooks";
 
 
 export interface User {
@@ -26,9 +26,9 @@ export const friend1: User = {
     email: "emilyrivers88@example.com",
     bio: "A devoted lover of historical fiction and cozy mysteries. When I’m not lost in a Victorian novel, I’m sipping tea, journaling, or planning my next visit to an old library.",
     pfp: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg",
-    completedBooks: [],
-    booksReading: [],
-    booksToRead: [],
+    completedBooks: [friend1Books[0]],
+    booksReading: [friend1Books[1]],
+    booksToRead: [friend1Books[2], friend1Books[3]],
 };
 
 export const friend2: User = {
@@ -38,9 +38,9 @@ export const friend2: User = {
     email: "marcusreed@example.com",
     bio: "Tech enthusiast by day, fantasy reader by night. I enjoy exploring worlds filled with magic, adventure, and complex characters who defy the odds.",
     pfp: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg",
-    completedBooks: [],
-    booksReading: [],
-    booksToRead: [],
+    completedBooks: [friend2Books[0]],
+    booksReading: [friend2Books[1]],
+    booksToRead: [friend2Books[2], friend2Books[3]],
 };
 
 export const friend3: User = {
@@ -50,9 +50,9 @@ export const friend3: User = {
     email: "sofianbooks@example.com",
     bio: "Poetry, philosophy, and powerful prose are my passions. I love connecting words to emotion and helping others find meaning in the stories they read.",
     pfp: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg",
-    completedBooks: [],
-    booksReading: [],
-    booksToRead: [],
+    completedBooks: [friend3Books[0]],
+    booksReading: [friend3Books[1]],
+    booksToRead: [friend3Books[2], friend3Books[3]],
 };
 
 export const friend4: User = {
@@ -62,9 +62,9 @@ export const friend4: User = {
     email: "dylanbrooks@example.com",
     bio: "An adventure seeker who loves epic fantasy and sci-fi sagas. My weekends are for long hikes, deep dives into lore, and sharing book recs online.",
     pfp: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg",
-    completedBooks: [],
-    booksReading: [],
-    booksToRead: [],
+    completedBooks: [friend4Books[0]],
+    booksReading: [friend4Books[1]],
+    booksToRead: [friend4Books[2], friend4Books[3]],
 };
 
 export const friend5: User = {
@@ -74,9 +74,9 @@ export const friend5: User = {
     email: "rachelkim@example.com",
     bio: "Storyteller at heart, editor by trade. I’m passionate about character-driven dramas and literary fiction that spark empathy and conversation.",
     pfp: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg",
-    completedBooks: [],
-    booksReading: [],
-    booksToRead: [],
+    completedBooks: [friend5Books[0]],
+    booksReading: [friend5Books[1]],
+    booksToRead: [friend5Books[2], friend5Books[3]],
 };
 
 export const defaultUser: MainUser = {
