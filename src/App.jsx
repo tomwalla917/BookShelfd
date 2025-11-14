@@ -1,23 +1,21 @@
 import { HashRouter as Router, Routes, Route, NavLink } from 'react-router-dom'
-import { useState } from 'react'
 import './App.css'
 import Home from './pages/Home.jsx'
 import Search from './pages/Search.jsx'
-import Friends from './pages/Friends.jsx'
+import Friends from './pages/Friends.tsx'
 import Profile from './pages/Profile.jsx'
+import FriendsProfile from './context/FriendsProfile'
 import logo from './images/logo.png'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
+    return (
     <Router>
       <div className="app">
         <header className="header bg tertiary">
           <div className="head">
             <div className="name">
-              
+
               <p className="h2">
                 <img src={logo} style={{ maxHeight: '3rem' }}></img>
                 BookShelfd</p>
@@ -39,10 +37,10 @@ function App() {
                       <NavLink className="nav-link" to="/search">Search</NavLink>
                     </li>
                     <li className="nav-item">
-                      <NavLink className="nav-link" to="/portfolio">Friends</NavLink>
+                      <NavLink className="nav-link" to="/Friends">Friends</NavLink>
                     </li>
                     <li className="nav-item">
-                      <NavLink className="nav-link" to="/contact">Profile</NavLink>
+                      <NavLink className="nav-link" to="/Profile">Profile</NavLink>
                     </li>
                   </ul>
                 </div>
@@ -54,8 +52,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/portfolio" element={<Friends />} />
-          <Route path="/contact" element={<Profile />} />
+          <Route path="/Friends" element={<Friends />}>
+            <Route path=":username" element={<FriendsProfile />} />
+          </Route>
+          <Route path="/Profile" element={<Profile />} />
         </Routes>
       </div>
     </Router>

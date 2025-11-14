@@ -44,6 +44,43 @@ export default function UserBooks() {
         <div className="container mt-4" >
 
             <div className="row g-4">
+
+                {/* Want to Read */}
+                <div className="col-md-4">
+                    <div className="card h-100 profile-card">
+                        <div className="card-body">
+                            <h3 className="card-title">Want to Read</h3>
+                            {booksToRead.length > 0 ? (
+                                <ul className="list-group book-grid">
+                                    {booksToRead.map((book, index) => (
+                                        <li key={index} className="book-card p-2">
+                                            <div className="row align-items-center"
+                                                 onClick={() => handleBookClick(book)}>
+                                                <div className="col-auto">
+                                                    <img
+                                                        src={book.coverUrl}
+                                                        alt={book.title}
+                                                        className="shadow-lg"
+                                                        height="75"/>
+                                                </div>
+                                                <div className="col">
+                                                    <strong>{book.title}</strong>
+                                                    <br />
+                                                    <small>{book.author}</small>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                <p className="text-muted mb-0">
+                                    Books you plan to read later.
+                                </p>
+                            )}
+                        </div>
+                    </div>
+                </div>
+
                 {/* Currently Reading */}
                 <div className="col-md-4">
                     <div className="card h-100 profile-card">
@@ -60,7 +97,7 @@ export default function UserBooks() {
                                                         src={book.coverUrl}
                                                         alt={book.title}
                                                         className="shadow-lg"
-                                                        width="50" />
+                                                        height="75"/>
                                                 </div>
                                                 <div className="col">
                                                     <strong>{book.title}</strong>
@@ -96,7 +133,7 @@ export default function UserBooks() {
                                                         src={book.coverUrl}
                                                         alt={book.title}
                                                         className="shadow-lg"
-                                                        width="50" />
+                                                        height="75"/>
                                                 </div>
                                                 <div className="col">
                                                     <strong>{book.title}</strong>
@@ -116,41 +153,6 @@ export default function UserBooks() {
                     </div>
                 </div>
 
-                {/* Want to Read */}
-                <div className="col-md-4">
-                    <div className="card h-100 profile-card">
-                        <div className="card-body">
-                            <h3 className="card-title">Want to Read</h3>
-                            {booksToRead.length > 0 ? (
-                                <ul className="list-group book-grid">
-                                    {booksToRead.map((book, index) => (
-                                        <li key={index} className="book-card p-2">
-                                            <div className="row align-items-center"
-                                                onClick={() => handleBookClick(book)}>
-                                                <div className="col-auto">
-                                                    <img
-                                                        src={book.coverUrl}
-                                                        alt={book.title}
-                                                        className="shadow-lg"
-                                                        width="50" />
-                                                </div>
-                                                <div className="col">
-                                                    <strong>{book.title}</strong>
-                                                    <br />
-                                                    <small>{book.author}</small>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    ))}
-                                </ul>
-                            ) : (
-                                <p className="text-muted mb-0">
-                                    Books you plan to read later.
-                                </p>
-                            )}
-                        </div>
-                    </div>
-                </div>
             </div>
             <BookModal
                 book={selectedBook}
