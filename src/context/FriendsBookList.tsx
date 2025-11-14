@@ -5,7 +5,7 @@ interface FriendsBooksProps {
     user: User;
 }
 
-const FriendsBooks: React.FC<FriendsBooksProps> = (user :User)=> {
+const FriendsBookList: React.FC<FriendsBooksProps> = ({ user })=> {
 
     const { booksReading, completedBooks, booksToRead } = user;
 
@@ -125,4 +125,4 @@ const FriendsBooks: React.FC<FriendsBooksProps> = (user :User)=> {
     );
 }
 
-export default FriendsBooks
+export default FriendsBookList

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { User } from "../types/User";
-import FriendsBooks from "./FriendsBooks";
+import FriendsBookList from "./FriendsBookList";
 
 interface UserProfileCardProps {
     user: User;
@@ -24,7 +24,7 @@ const FriendProfilePage: React.FC<UserProfileCardProps> = ({ user }) => {
                 </div>
             </div>
             <div>
-                <FriendsBooks user={user}/>
+                <FriendsBookList user={user}/>
             </div>
         </div>
     );
