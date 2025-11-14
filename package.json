@@ -13,10 +13,12 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "prop-types": "^15.8.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dev": "^1.0.0",
-    "react-router-dom": "^7.9.4"
+    "react-router-dom": "^7.9.4",
+    "react-simple-star-rating": "^5.1.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

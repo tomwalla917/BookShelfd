@@ -608,3 +608,7 @@
   color: rgba(255, 255, 255, 0.805);
   transition: all 0.3s ease;
 }
+
+.modal-review-rating svg {
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+}

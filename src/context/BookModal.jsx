@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { defaultUser } from "../types/User.js";
 import { useState, useEffect } from 'react';
+import { Rating } from 'react-simple-star-rating';
 
 function BookModal({ book, isOpen, onClose, onBookListChange }) {
     if (!isOpen || !book) return null;
@@ -9,6 +10,11 @@ function BookModal({ book, isOpen, onClose, onBookListChange }) {
     const [savedReview, setSavedReview] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
     const [currentList, setCurrentList] = useState(null);
+    const [rating, setRating] = useState(0);
+    const handleRatingChange = (rate) => {
+        setRating(rate);
+        localStorage.setItem(`rating-${book.title}`, rate);
+    };
 
     useEffect(() => {
         if (book && book.title) {
@@ -36,6 +42,11 @@ function BookModal({ book, isOpen, onClose, onBookListChange }) {
                 setCurrentList(null);
             }
             setIsEditing(false);
+
+            if (book && book.title) {
+                const stored = localStorage.getItem(`rating-${book.title}`);
+                setRating(stored ? Number(stored) : 0);
+            }
         }
     }, [book?.title, isOpen]);
 
@@ -108,8 +119,16 @@ function BookModal({ book, isOpen, onClose, onBookListChange }) {
                             <h4>Reviews</h4>
                         </div>
                         <div className="modal-review-rating">
+                            <Rating
+                                onClick={handleRatingChange}
+                                initialValue={rating}
+                                size={30}
+                                allowFraction={true}
+                                fillColor="#ffd700"
+                            />
+                            <p>Your current rating: {rating}</p>
                             <h6>Your Review:</h6>
-
+                            
                             {isEditing ? (
                                 <>
                                     <textarea
