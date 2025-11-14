@@ -28,7 +28,7 @@ export const friend1: User = {
     pfp: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg",
     completedBooks: [friend1Books[0]],
     booksReading: [friend1Books[1]],
-    booksToRead: [friend1Books[2], friend1Books[3]],
+    booksToRead: [friend1Books[2], friend1Books[3], friend2Books[2], friend3Books[2], friend4Books[2], friend5Books[2]],
 };
 
 export const friend2: User = {

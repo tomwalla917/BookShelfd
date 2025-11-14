@@ -20,21 +20,23 @@ const FriendsBookList: React.FC<FriendsBooksProps> = ({ user })=> {
                         <div className="card-body">
                             <h3 className="card-title">Want to Read</h3>
                             {booksToRead.length > 0 ? (
-                                <ul className="list-group book-grid">
+                                <ul className="row row-cols-2 g-2 list-unstyled">
                                     {booksToRead.map((book, index) => (
-                                        <li key={index} className="book-card p-2">
-                                            <div className="row align-items-center">
-                                                <div className="col-auto">
-                                                    <img
-                                                        src={book.coverUrl}
-                                                        alt={book.title}
-                                                        className="shadow-lg"
-                                                        width="50"/>
-                                                </div>
-                                                <div className="col">
-                                                    <strong>{book.title}</strong>
-                                                    <br/>
-                                                    <small>{book.author}</small>
+                                        <li key={index} className="col">
+                                            <div className="book-card-friends p-2">
+                                                <div className="row align-items-center">
+                                                    <div className="col-auto">
+                                                        <img
+                                                            src={book.coverUrl}
+                                                            alt={book.title}
+                                                            className="shadow-lg"
+                                                            height="75"/>
+                                                    </div>
+                                                    <div className="col">
+                                                        <strong>{book.title}</strong>
+                                                        <br/>
+                                                        <small>{book.author}</small>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </li>
@@ -42,7 +44,7 @@ const FriendsBookList: React.FC<FriendsBooksProps> = ({ user })=> {
                                 </ul>
                             ) : (
                                 <p className="text-muted mb-0">
-                                    Books you plan to read later.
+                                    Books they plan to read later.
                                 </p>
                             )}
                         </div>
@@ -55,21 +57,23 @@ const FriendsBookList: React.FC<FriendsBooksProps> = ({ user })=> {
                         <div className="card-body">
                             <h3 className="card-title">Currently Reading</h3>
                             {booksReading.length > 0 ? (
-                                <ul className="list-group book-grid">
+                                <ul className="row row-cols-2 g-2 list-unstyled">
                                     {booksReading.map((book, index) => (
-                                        <li key={index} className="book-card p-2">
-                                            <div className="row align-items-center">
-                                                <div className="col-auto">
-                                                    <img
-                                                        src={book.coverUrl}
-                                                        alt={book.title}
-                                                        className="shadow-lg"
-                                                        width="50"/>
-                                                </div>
-                                                <div className="col">
-                                                    <strong>{book.title}</strong>
-                                                    <br/>
-                                                    <small>{book.author}</small>
+                                        <li key={index} className="col">
+                                            <div className="book-card-friends p-2">
+                                                <div className="row align-items-center">
+                                                    <div className="col-auto">
+                                                        <img
+                                                            src={book.coverUrl}
+                                                            alt={book.title}
+                                                            className="shadow-lg"
+                                                            height="75"/>
+                                                    </div>
+                                                    <div className="col">
+                                                        <strong>{book.title}</strong>
+                                                        <br/>
+                                                        <small>{book.author}</small>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </li>
@@ -77,7 +81,7 @@ const FriendsBookList: React.FC<FriendsBooksProps> = ({ user })=> {
                                 </ul>
                             ) : (
                                 <p className="text-muted mb-0">
-                                    List of books currently being read.
+                                    Books they plan to read later.
                                 </p>
                             )}
                         </div>
@@ -90,21 +94,23 @@ const FriendsBookList: React.FC<FriendsBooksProps> = ({ user })=> {
                         <div className="card-body">
                             <h3 className="card-title">Completed</h3>
                             {completedBooks.length > 0 ? (
-                                <ul className="list-group book-grid">
+                                <ul className="row row-cols-2 g-2 list-unstyled">
                                     {completedBooks.map((book, index) => (
-                                        <li key={index} className="book-card p-2">
-                                            <div className="row align-items-center">
-                                                <div className="col-auto">
-                                                    <img
-                                                        src={book.coverUrl}
-                                                        alt={book.title}
-                                                        className="shadow-lg"
-                                                        width="50"/>
-                                                </div>
-                                                <div className="col">
-                                                    <strong>{book.title}</strong>
-                                                    <br/>
-                                                    <small>{book.author}</small>
+                                        <li key={index} className="col">
+                                            <div className="book-card-friends p-2">
+                                                <div className="row align-items-center">
+                                                    <div className="col-auto">
+                                                        <img
+                                                            src={book.coverUrl}
+                                                            alt={book.title}
+                                                            className="shadow-lg"
+                                                            height="75"/>
+                                                    </div>
+                                                    <div className="col">
+                                                        <strong>{book.title}</strong>
+                                                        <br/>
+                                                        <small>{book.author}</small>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </li>
@@ -112,7 +118,7 @@ const FriendsBookList: React.FC<FriendsBooksProps> = ({ user })=> {
                                 </ul>
                             ) : (
                                 <p className="text-muted mb-0">
-                                    Books you’ve completed will go here.
+                                    Books they plan to read later.
                                 </p>
                             )}
                         </div>

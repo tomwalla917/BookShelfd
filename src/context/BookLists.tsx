@@ -61,7 +61,7 @@ export default function UserBooks() {
                                                         src={book.coverUrl}
                                                         alt={book.title}
                                                         className="shadow-lg"
-                                                        width="50" />
+                                                        height="75"/>
                                                 </div>
                                                 <div className="col">
                                                     <strong>{book.title}</strong>
@@ -97,7 +97,7 @@ export default function UserBooks() {
                                                         src={book.coverUrl}
                                                         alt={book.title}
                                                         className="shadow-lg"
-                                                        width="50" />
+                                                        height="75"/>
                                                 </div>
                                                 <div className="col">
                                                     <strong>{book.title}</strong>
@@ -133,7 +133,7 @@ export default function UserBooks() {
                                                         src={book.coverUrl}
                                                         alt={book.title}
                                                         className="shadow-lg"
-                                                        width="50" />
+                                                        height="75"/>
                                                 </div>
                                                 <div className="col">
                                                     <strong>{book.title}</strong>
