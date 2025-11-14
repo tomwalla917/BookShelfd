@@ -55,8 +55,6 @@ Bookshelfd is a modern book discovery and social reading platform that helps you
 ### Home Page
 Discover trending books and see what your friends are currently reading. The home page provides quick access to popular titles and community recommendations.
 
-<img src="/main/src/images/homeImage.png" alt="Bookshelfd Homepage" width="600">
-
 ### Search & Discover
 Use the powerful search functionality to find books by:
 - **Title** - Search for specific books
@@ -65,8 +63,6 @@ Use the powerful search functionality to find books by:
 
 Click on any book to view detailed information and add it to your reading lists.
 
-[Insert image of search page]
-
 ### Friends Network
 Connect with fellow readers and explore their literary journeys:
 - View friends' reading lists
@@ -74,16 +70,12 @@ Connect with fellow readers and explore their literary journeys:
 - Discover new books through their recommendations
 - Navigate to individual friend profiles for detailed insights
 
-[Insert image of friends page]
-
 ### Your Profile
 Manage your personal reading space:
 - **Reading Lists**: Organize books across Plan to Read, Currently Reading, and Completed
 - **Reviews**: Write and edit your book reviews
 - **Reading Stats**: Track your reading progress (coming soon)
 - **Move Books**: Easily reorganize books between lists
-
-[Insert image of profile page]
 
 ### Book Modal Features
 When you click on any book, you'll see:
