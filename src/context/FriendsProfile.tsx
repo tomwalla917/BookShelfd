@@ -1,7 +1,6 @@
 import {useLocation, useParams} from "react-router-dom";
 import {User} from "../types/User";
 import * as React from "react";
-import {defaultUser} from "../types/User";
 import FriendProfilePage from "./FriendProfilePage";
 
 interface LocationState {
@@ -12,10 +11,7 @@ function FriendsProfile() {
     const { username } = useParams();
     const location = useLocation();
     const state = location.state as LocationState | null;
-    const friendFromState = state?.friend;
-    const friend =
-        friendFromState ??
-        defaultUser.friends.find((f) => f.username === username);
+    const friend = state?.friend;
 
     if (!friend) {
         return <p className="text-muted">Friend not found.</p>;
