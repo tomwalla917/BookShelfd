@@ -6,6 +6,8 @@
 
 Bookshelfd is a modern book discovery and social reading platform that helps you find your next favorite read while connecting with fellow book lovers. Browse trending titles, share reviews, organize your reading lists, and discover what your friends are reading—all in one sleek, intuitive interface.
 
+<img src="/src/images/Animation2.gif">
+
 ## ✨ Features
 
 ### 📖 Discover & Explore
