@@ -72,7 +72,7 @@ function Search() {
             const startIndex = (page - 1) * RESULTS_PER_PAGE;
 
             const response = await fetch(
-                `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&maxResults=${RESULTS_PER_PAGE}&startIndex=${startIndex}&key=${import.meta.env.VITE_GOOGLE_BOOKS}`
+                `https://www.googleapis.com/books/v1/volumes?q=${query}&startIndex=${startIndex}&maxResults=${RESULTS_PER_PAGE}&key=${import.meta.env.VITE_GOOGLE_BOOKS}`
             );
 
             if (!response.ok) throw new Error('Failed to fetch books');
@@ -213,23 +213,23 @@ function Search() {
 
             {books.length > 0 && (
                 <div className="col-12">
-                   <div className="box-search">
-                    <div className="book-grid-search">
-                        {books.map((book, i) => (
-                            <div
-                                key={i}
-                                className="book-card-search"
-                                onClick={() => handleBookClick(book)}
-                            >
-                                <img src={book.coverUrl} alt={book.title} className="book-cover" />
-                                <div className="book-info">
-                                    <h5>{book.title}</h5>
-                                    <p>{book.author}</p>
+                    <div className="box-search">
+                        <div className="book-grid-search">
+                            {books.map((book, i) => (
+                                <div
+                                    key={i}
+                                    className="book-card-search"
+                                    onClick={() => handleBookClick(book)}
+                                >
+                                    <img src={book.coverUrl} alt={book.title} className="book-cover" />
+                                    <div className="book-info">
+                                        <h5>{book.title}</h5>
+                                        <p>{book.author}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                 </div>
 
 
                     <div className="pagination" style={{ marginTop: '20px', textAlign: 'center' }}>

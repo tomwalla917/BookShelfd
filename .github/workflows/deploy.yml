@@ -32,6 +32,8 @@ jobs:
         run: npm ci
         
       - name: Build
+        env:
+          VITE_GOOGLE_BOOKS: ${{ secrets.VITE_GOOGLE_BOOKS }}
         run: npm run build
         
       - name: Setup Pages
